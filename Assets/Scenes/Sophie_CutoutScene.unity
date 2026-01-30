@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2049399011}
   lineRenderer: {fileID: 349755126}
-  distanceThreshold: 0.1
+  distanceThreshold: 0.01
   target: {fileID: 1223610464}
   cutoutMode: 0
   cutoutShape: []
@@ -506,8 +506,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049399009}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.008851292, y: 0.9430377, z: -0.023895016, w: 0.33170873}
-  m_LocalPosition: {x: 5.593292, y: 4.80692, z: 24.607529}
+  m_LocalRotation: {x: 2.3283059e-10, y: -0.000000029802315, z: -0, w: 1}
+  m_LocalPosition: {x: 20.125486, y: 2.4988987, z: -100.13124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

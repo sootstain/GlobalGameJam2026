@@ -9,7 +9,7 @@ public class Cutter : MonoBehaviour
     public LineRenderer lineRenderer;
     //public Texture2D knifeIcon; //TODO: Draw this or find icon
 
-    public float distanceThreshold = 0.02f;
+    public float distanceThreshold = 0.005f;
 
     public SpriteRenderer target;
     public bool cutoutMode;
@@ -18,34 +18,46 @@ public class Cutter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //using old input sys because I'm lazy
         {
             Debug.Log("We cutting");
-            var point = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());;
-            AddPointToShape(point);
             StartCutout();
         }
-        
-        lineRenderer.positionCount = cutoutShape.Count;
-        lineRenderer.SetPositions(cutoutShape.ToArray());
+
+        if (Input.GetMouseButton(0) && cutoutMode)
+        {
+            var point = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            point.z = -0.1f;
+            AddPointToShape(point);
+            UpdateLineRenderer();
+        }
 
         if (Input.GetMouseButtonUp(0))
         {
             Debug.Log("No more cutting, we are done");
             EndCutout();
         }
+
     }
 
+    void UpdateLineRenderer()
+    {
+        lineRenderer.positionCount = cutoutShape.Count;
+        if (cutoutShape.Count > 0)
+        {
+            lineRenderer.SetPositions(cutoutShape.ToArray());
+        }
+    }
 
     public void StartCutout()
     {
         //Cursor.SetCursor(knifeIcon, Vector2.zero, CursorMode.Auto);
         cutoutMode = true;
-        //cutoutShape.Clear();
+        cutoutShape.Clear();
         target.maskInteraction = SpriteMaskInteraction.None;
         target.GetComponent<SpriteMask>().sprite = null;
         lineRenderer.positionCount = 0;
-        
+        lineRenderer.enabled = true;
     }
 
     public void EndCutout()
@@ -54,6 +66,7 @@ public class Cutter : MonoBehaviour
         CreateCutout();
         cutoutMode = false;
         lineRenderer.positionCount = 0;
+        lineRenderer.enabled = false;
     }
 
     public void CreateCutout()
@@ -132,16 +145,19 @@ public class Cutter : MonoBehaviour
     {
         if (cutoutShape.Count == 0)
         {
-            cutoutShape.Add(point);
+            Debug.Log("first point");
+            cutoutShape.Add(point); //if lr not loop, add multiple points so it actually shows up?
+            
             return;
         }
         
         var lastPoint = cutoutShape[^1];
         var sqrMagnitude = Vector3.SqrMagnitude(point - lastPoint);
-        if (sqrMagnitude < distanceThreshold * distanceThreshold) return;
+        if (sqrMagnitude < distanceThreshold * distanceThreshold)
+        {
+            return;
+        }
         
-        
-        Debug.Log("Adding more than 1 point");
         cutoutShape.Add(point);
     }
 }
