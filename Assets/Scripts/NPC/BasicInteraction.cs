@@ -1,16 +1,31 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BasicInteraction : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Outline outline;
+    public string message;
+
+    public UnityEvent onInteract;
+
     void Start()
     {
-        
+        outline = GetComponent<Outline>();
+        outline.enabled = false;
+    }
+    
+    public void Interact()
+    {
+        onInteract.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DisableOutline()
     {
-        
+        outline.enabled = false;
+    }
+    
+    public void EnableOutline()
+    {
+        outline.enabled = true;
     }
 }
