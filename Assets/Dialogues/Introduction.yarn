@@ -10,16 +10,6 @@ title: LeftGraveLouise
 ---
 Louise: What do you want to know?
 -> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
--> Something that will get me no clues?
 -> Something that will get me Clue A? <<if not $hasClueA>>
     <<set $hasClueA to true>>
 -> Something relating to existing Clue A? <<if $hasClueA>>

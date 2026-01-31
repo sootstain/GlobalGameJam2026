@@ -54,6 +54,12 @@ public class BasicPatrol : MonoBehaviour
 
     public void Update()
     {
+        if (currentInteraction != null && currentInteraction.isCurrentConversation)
+        {
+            Wait();
+            return;
+        }
+        
         targetLocation = GetPatrolPoint(currentPatrolPointIndex);
         currentLocation = transform.position;
         
@@ -72,11 +78,6 @@ public class BasicPatrol : MonoBehaviour
         if (timeSinceArrivedAtWaypoint >= patrolPointDwellTime)
         {
             transform.position = Vector3.MoveTowards(currentLocation,  targetLocation, SpeedMultiplyer * Time.deltaTime);
-        }
-        
-        if (currentInteraction.isCurrentConversation == true)
-        {
-            Wait();
         }
     }
     

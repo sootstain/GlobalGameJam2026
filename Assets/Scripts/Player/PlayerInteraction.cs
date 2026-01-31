@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,13 +9,29 @@ public class PlayerInteraction : MonoBehaviour
     public float playerInteractionDistance = 30f;
     BasicInteraction currentInteraction;
     private CharacterController characterController;
+    private bool isInDialogue;
 
     [SerializeField] TMP_Text interactText;
+
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+    }
 
     void Update()
     {
         CheckInteraction();
         TryInteractWithCurrent();
+        
+        if (characterController != null && !characterController.enabled && !isInDialogue)
+        {
+            if (currentInteraction == null || !currentInteraction.isCurrentConversation)
+            {
+                characterController.enabled = true;
+            }
+        }
     }
 
 
@@ -27,12 +44,10 @@ public class PlayerInteraction : MonoBehaviour
         if (currentInteraction == null)
             return;
 
-        characterController = GetComponent<CharacterController>();
-        characterController.enabled = false;
-        currentInteraction.Interact();
+        if (characterController != null)
+            characterController.enabled = false;
 
-        if (!currentInteraction.isCurrentConversation)
-            characterController.enabled = true;
+        currentInteraction.Interact();
     }
 
     public void CheckInteraction()
@@ -43,7 +58,15 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.CompareTag("NPC"))
             {
                 BasicInteraction npcInteraction = hit.collider.GetComponent<BasicInteraction>();
-                if(npcInteraction.enabled) SetCurrentInteraction(npcInteraction);
+                if (npcInteraction.enabled)
+                {
+                    SetCurrentInteraction(npcInteraction);
+                    isInDialogue = npcInteraction.isCurrentConversation;
+                }
+                else
+                {
+                    DisableCurrentInteraction();
+                }
             }
             else
             {
