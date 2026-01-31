@@ -5,6 +5,7 @@ public class EyeSO : ScriptableObject
 {
     public EyeType eyeType;
     public Sprite sprite;
+    public Sprite spriteMask;
 }
 
 
