@@ -29,7 +29,6 @@ public class Cutter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) //using old input sys because I'm lazy
         {
-            Debug.Log("We cutting");
             StartCutout();
         }
 
@@ -43,7 +42,6 @@ public class Cutter : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("No more cutting, we are done");
             EndCutout();
         }
 
@@ -81,7 +79,6 @@ public class Cutter : MonoBehaviour
 
     public void CreateCutout()
     {
-        Debug.Log("Creating cutout");
         if (cutoutShape.Count < 3) return; //need 3 vertices
 
         Color _blank = new Color(0, 0, 0, 0);
@@ -180,7 +177,6 @@ public class Cutter : MonoBehaviour
     {
         if (cutoutShape.Count == 0)
         {
-            Debug.Log("first point");
             cutoutShape.Add(point); //if lr not loop, add multiple points so it actually shows up?
 
             return;
@@ -200,16 +196,15 @@ public class Cutter : MonoBehaviour
     {
         //Assuming all masks same size and faces in roughly same position here, if not then aaaaaaaaaaa
 
-        for(var x = 0; x < bodyPartSOs.Length; x++)
+        foreach (var t in bodyPartSOs)
         {
-            if (bodyPartSOs[x].spriteMask == null)
+            if (t.spriteMask == null)
             {
-                bodyPartSOs[x].sprite = target.GetComponent<SpriteRenderer>().sprite;
-                bodyPartSOs[x].spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
+                t.sprite = target.GetComponent<SpriteRenderer>().sprite;
+                t.spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
 
                 return;
             }
-            Debug.LogWarning("SO already has a sprite assigned to it");
         }
     }
 

@@ -43,6 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: RightEye
+    uniqueID: 1222154823
+    locked: 0
+  - name: LeftEye
+    uniqueID: 2353442499
+    locked: 0
+  - name: Nose
+    uniqueID: 1917550179
+    locked: 0
+  - name: Mouth
+    uniqueID: 2816432897
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
