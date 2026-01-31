@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BasicPatrol : MonoBehaviour
 {
-    public float SpeedMultiplyer = 5f;
+    public float SpeedMultiplyer = 2f;
     private float patrolPointDistance = 1f;
-    private float patrolPointDwellTime = 1f;
+    public float patrolPointDwellTime = 3f;
     
     int currentPatrolPointIndex;
     private Vector3 currentLocation;
