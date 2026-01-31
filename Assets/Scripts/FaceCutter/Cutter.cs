@@ -9,15 +9,22 @@ public class Cutter : MonoBehaviour
     public LineRenderer lineRenderer;
     //public Texture2D knifeIcon; //TODO: Draw this or find icon
 
-    
-    public float distanceThreshold = 0.005f;
+    //just for testing for now
+    [SerializeField] EyeSO rightEyeSO;
 
+    public float distanceThreshold = 0.005f;
+    
     public SpriteRenderer target;
     public bool cutoutMode;
     public List<Vector3> cutoutShape;
 
     public SpriteRenderer emptySprite;
 
+
+    void Start()
+    {
+        emptySprite.enabled = false;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) //using old input sys because I'm lazy
@@ -69,13 +76,14 @@ public class Cutter : MonoBehaviour
         cutoutMode = false;
         lineRenderer.positionCount = 0;
         lineRenderer.enabled = false;
+        
     }
 
     public void CreateCutout()
     {
         Debug.Log("Creating cutout");
-        if(cutoutShape.Count < 3) return; //need 3 vertices
-        
+        if (cutoutShape.Count < 3) return; //need 3 vertices
+
         Color _blank = new Color(0, 0, 0, 0);
         var polygon = cutoutShape.ToArray();
         var resolution = target.size * target.sprite.pixelsPerUnit;
@@ -84,14 +92,14 @@ public class Cutter : MonoBehaviour
 
         var holeMask = new Texture2D((int)resolution.x, (int)resolution.y);
 
-        
-        
+
+
         for (int x = 0; x < mask.width; x++)
         {
             for (int y = 0; y < mask.height; y++)
             {
                 mask.SetPixel(x, y, _blank);
-            }    
+            }
         }
 
         for (int x = 0; x < mask.width; x++)
@@ -111,17 +119,23 @@ public class Cutter : MonoBehaviour
                 }
             }
         }
+
         mask.Apply();
         holeMask.Apply();
-        
+
         var sprite = Sprite.Create(mask, new Rect(0, 0, mask.width, mask.height), new Vector2(0.5f, 0.5f));
         emptySprite.GetComponent<SpriteMask>().sprite = sprite;
         emptySprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        emptySprite.enabled = true;
 
-        var holeSprite = Sprite.Create(holeMask, new Rect(0, 0, holeMask.width, holeMask.height), new Vector2(0.5f, 0.5f));
+        var holeSprite = Sprite.Create(holeMask, new Rect(0, 0, holeMask.width, holeMask.height),
+            new Vector2(0.5f, 0.5f));
+        
         target.GetComponent<SpriteMask>().sprite = holeSprite;
         target.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+
         
+        AssignToSO();
     }
 
     public static Vector2 PixelToWorldPosition(SpriteRenderer spriteRenderer, Vector2 pixel)
@@ -155,28 +169,40 @@ public class Cutter : MonoBehaviour
                     isInside = !isInside;
                 }
             }
+
             edgeEnd = edgeStart;
         }
+
         return isInside;
     }
-    
+
     void AddPointToShape(Vector3 point)
     {
         if (cutoutShape.Count == 0)
         {
             Debug.Log("first point");
             cutoutShape.Add(point); //if lr not loop, add multiple points so it actually shows up?
-            
+
             return;
         }
-        
+
         var lastPoint = cutoutShape[^1];
         var sqrMagnitude = Vector3.SqrMagnitude(point - lastPoint);
         if (sqrMagnitude < distanceThreshold * distanceThreshold)
         {
             return;
         }
-        
+
         cutoutShape.Add(point);
     }
+
+    public void AssignToSO()
+    {
+        //Assuming all masks same size and faces in roughly same position here, if not then aaaaaaaaaaa
+
+            rightEyeSO.sprite = target.GetComponent<SpriteRenderer>().sprite;
+            rightEyeSO.spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
+            rightEyeSO.eyeType = EyeType.Black; //TODO: set this up with the images; SOs for all of them too?
+    }
+
 }

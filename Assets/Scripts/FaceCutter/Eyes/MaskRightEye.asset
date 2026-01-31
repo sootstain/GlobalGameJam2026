@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bd3f230a2fd9ef46844e823cb7808bd, type: 3}
-  m_Name: EyeSO
+  m_Name: MaskRightEye
   m_EditorClassIdentifier: 
   eyeType: 0
   sprite: {fileID: 0}
