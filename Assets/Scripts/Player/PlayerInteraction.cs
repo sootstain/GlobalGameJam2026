@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +14,9 @@ public class PlayerInteraction : MonoBehaviour
     private CharacterController characterController;
     private bool isInDialogue;
 
+    private bool eyesFilled;
+    [SerializeField] private BodyPartSO[] collectedParts;
+    
     private Vector3 closetPosition = new(13.4200001f,-12.9350004f,1.92499995f);
     
     [SerializeField] GameObject interactTextHUD;
@@ -36,7 +41,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
+            HandleCutting();
         }
         
         if (characterController != null && !characterController.enabled && !isInDialogue)
@@ -45,6 +50,41 @@ public class PlayerInteraction : MonoBehaviour
             {
                 characterController.enabled = true;
                 
+            }
+        }
+    }
+
+    private void HandleCutting()
+    {
+        foreach (var x in collectedParts)
+        {
+            if (x.sprite == null)
+            {
+                if (x is MouthSO)
+                {
+                    x.sprite = currentInteraction.npcData.mouthPhoto;
+                    ComeOutOfTheCloset();
+                    return;
+                }
+                if (x is EyeSO && !eyesFilled)
+                {
+                    x.sprite = currentInteraction.npcData.rightEyePhoto;
+                    eyesFilled = true;
+                    ComeOutOfTheCloset();
+                    return;
+                }
+                if (x is EyeSO && eyesFilled)
+                {
+                    x.sprite = currentInteraction.npcData.leftEyePhoto;
+                    ComeOutOfTheCloset();
+                    return;
+                }
+                if (x is NoseSO)
+                {
+                    x.sprite = currentInteraction.npcData.nosePhoto;
+                    ComeOutOfTheCloset();
+                    return;
+                }
             }
         }
     }
@@ -116,6 +156,18 @@ public class PlayerInteraction : MonoBehaviour
 
     public void ComeOutOfTheCloset()
     {
+        if (collectedParts.All(_ => _.sprite != null))
+        {
+            
+            Debug.Log("All parts collected, loading next scene");
+            SceneManager.LoadScene("MaskCreationManualCut", LoadSceneMode.Single);
+            return;
+        };
+        
+        //will add a fade to black and scream here later
+        
+        Debug.Log("Coming out of the closet");
+        
         transform.position = closetPosition;
     }
 }

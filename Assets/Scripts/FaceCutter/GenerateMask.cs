@@ -8,7 +8,5 @@ public class GenerateMask : MonoBehaviour
     void Start()
     {
             spriteRenderer.sprite = facePart.sprite;
-            spriteRenderer.GetComponent<SpriteMask>().sprite = facePart.spriteMask;
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
     }
 }

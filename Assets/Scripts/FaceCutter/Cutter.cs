@@ -134,7 +134,7 @@ public class Cutter : MonoBehaviour
         target.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
 
         
-        AssignToSO();
+        //AssignToSO();
     }
 
     public static Vector2 PixelToWorldPosition(SpriteRenderer spriteRenderer, Vector2 pixel)
@@ -194,7 +194,7 @@ public class Cutter : MonoBehaviour
         cutoutShape.Add(point);
     }
 
-    public void AssignToSO()
+    /*public void AssignToSO()
     {
         //Assuming all masks same size and faces in roughly same position here, if not then aaaaaaaaaaa
         if(bodyPartSOs.Count(x => x.spriteMask != null) >= 3)
@@ -217,7 +217,7 @@ public class Cutter : MonoBehaviour
         }
         
         
-    }
+    }*/
 
     IEnumerator<WaitForSeconds> BackToMasquerade()
     {

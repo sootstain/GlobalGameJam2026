@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: RightEyeSO
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  spriteMask: {fileID: 0}
   eyeType: 0

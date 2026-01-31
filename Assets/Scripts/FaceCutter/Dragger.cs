@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+
 public class Dragger : MonoBehaviour
 {
     private Vector3 dragOffset;
@@ -9,13 +10,11 @@ public class Dragger : MonoBehaviour
     private bool isDragging;
 
     private SpriteRenderer sprite;
-    private SpriteMask spriteMask;
     
     void Awake()
     {
         cam = Camera.main;
         sprite = GetComponent<SpriteRenderer>();
-        spriteMask = GetComponent<SpriteMask>();
     }
     
     private void Update()
@@ -59,7 +58,7 @@ public class Dragger : MonoBehaviour
     {
         Vector3 localPos = transform.InverseTransformPoint(worldPos);
         
-        Sprite maskSprite = spriteMask.sprite;
+        Sprite maskSprite = sprite.sprite;
         if (maskSprite == null) return false;
         
         Texture2D texture = maskSprite.texture;

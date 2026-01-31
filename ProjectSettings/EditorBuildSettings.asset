@@ -9,17 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 9d2ca39b11766604a89e872d96c83af2
   - enabled: 1
-    path: Assets/Scenes/Sophie_Sandbox.unity
-    guid: 7a6ac0da45c11cc4cb9a2947f9185bbe
+    path: Assets/Scenes/Ballroom.unity
+    guid: 1648c1c967d9985a5805612a2f18d96a
   - enabled: 1
     path: Assets/Scenes/Cutout.unity
     guid: 76b644b306f7ba54f88f80ecdcee33d1
   - enabled: 1
-    path: Assets/Scenes/Sophie_CutoutScene1.unity
-    guid: fbbb2d223d3805c4d8342b9de9d5ad73
-  - enabled: 1
-    path: Assets/Scenes/MaskCreation.unity
-    guid: 55e7d597276b4174394b48c218c655d5
+    path: Assets/Scenes/MaskCreationManualCut.unity
+    guid: b99e5dca49a2326428deecdab8b7d079
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e967ca1c7b76f744ebf6b2e505cbb4b5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

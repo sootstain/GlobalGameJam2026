@@ -4,5 +4,4 @@ using UnityEngine;
 public class BodyPartSO : ScriptableObject
 {
     public Sprite sprite;
-    public Sprite spriteMask;
 }
