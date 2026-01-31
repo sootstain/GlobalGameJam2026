@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using Yarn;
@@ -13,8 +14,23 @@ public class BasicInteraction : MonoBehaviour
     BasicInteraction currentInteraction;
     public UnityEvent onInteract;
 
+    public NPC npcData;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        //See if we like this or not; will need to also update during path movement I think
+        transform.LookAt(Camera.main.transform);
+    }
+
     void Start()
     {
+        spriteRenderer.sprite = npcData.photo;
         outline = GetComponent<Outline>();
         outline.enabled = false;
 
