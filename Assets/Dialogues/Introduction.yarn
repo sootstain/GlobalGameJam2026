@@ -1,24 +1,17 @@
 ﻿title: Start
 ---
-<<set $hasClueA to false>>
-<<set $hasClueB to false>>
-<<set $hasClueC to false>>
-Ghost: Welcome to the graveyard! Unfortunately, you're just in time for an unsolved mystery...
-Ghost: You'll have to speak to these three to figure out what happened!
+Speaker: Welcome to the House of Peko Pain!
+Speaker: Stitch the best face to win
 ===
-title: LeftGraveLouise
+title: Louise
 ---
 Louise: What do you want to know?
--> Something that will get me no clues?
--> Something that will get me Clue A? <<if not $hasClueA>>
-    <<set $hasClueA to true>>
--> Something relating to existing Clue A? <<if $hasClueA>>
--> Something relating to existing Clue B? <<if $hasClueB>>
--> Something relating to existing Clue C? <<if $hasClueC>>
-Louise: ~additional dialogue~
+-> What is your ideal type?
+-> Do you like cats?
+Louise: I like red eyes and black cats.
 Louise: Ok, bye!
 ===
-title: CenterGraveCarol
+title: Carol
 ---
 Carol: What do you want to know?
 -> Something that will get me no clues?
@@ -30,7 +23,7 @@ Carol: What do you want to know?
 Carol: ~additional dialogue~
 Carol: Ok, bye!
 ===
-title: RightGraveRuby
+title: Ruby
 ---
 Ruby: What do you want to know?
 -> Something that will get me no clues?
@@ -42,7 +35,7 @@ Ruby: What do you want to know?
 Ruby: ~additional dialogue~
 Ruby: Ok, bye!
 ===
-title: Ghost
+title: Laplacian
 ---
 Ghost: Are you ready to tell me what happened?
 -> Yes
