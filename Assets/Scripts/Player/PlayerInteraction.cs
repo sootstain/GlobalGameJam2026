@@ -12,6 +12,8 @@ public class PlayerInteraction : MonoBehaviour
     private CharacterController characterController;
     private bool isInDialogue;
 
+    private Vector3 closetPosition = new(13.4200001f,-12.9350004f,1.92499995f);
+    
     [SerializeField] GameObject interactTextHUD;
     
     
@@ -30,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             TryInteractWithCurrent();
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetKeyDown(KeyCode.K) && currentInteraction != null)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -110,5 +112,10 @@ public class PlayerInteraction : MonoBehaviour
     public void TestInteraction()
     {
         Debug.Log("Interaction");
+    }
+
+    public void ComeOutOfTheCloset()
+    {
+        transform.position = closetPosition;
     }
 }

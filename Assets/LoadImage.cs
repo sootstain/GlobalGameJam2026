@@ -20,6 +20,7 @@ public class LoadImage : MonoBehaviour
 
     private void OnDisable()
     {
+        playerInteraction.ComeOutOfTheCloset();
         if(playerInteraction != null) playerInteraction.currentInteraction = null;
     }
 }

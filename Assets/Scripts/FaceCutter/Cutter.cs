@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -196,7 +197,13 @@ public class Cutter : MonoBehaviour
     public void AssignToSO()
     {
         //Assuming all masks same size and faces in roughly same position here, if not then aaaaaaaaaaa
-
+        if(bodyPartSOs.Count(x => x.spriteMask != null) >= 3)
+        {
+            //No clue why checking all doesn't work but anyway we doing this pepega way now :)
+            StartCoroutine(CreateTheMask());
+            return;
+        }
+        
         foreach (var t in bodyPartSOs)
         {
             if (t.spriteMask == null)
@@ -208,28 +215,20 @@ public class Cutter : MonoBehaviour
                 return;
             }
         }
-
-        foreach (var t in bodyPartSOs)
-        {
-            if (t.spriteMask == null) return;
-            //if all full up, transition to the mask creation scene
-            StartCoroutine(CreateTheMask());
-        }
+        
         
     }
 
     IEnumerator<WaitForSeconds> BackToMasquerade()
     {
         yield return new WaitForSeconds(0.5f);
-        emptySprite.GetComponent<SpriteMask>().sprite = null;
-        target.sprite = null;
+        
         SceneManager.UnloadSceneAsync("Cutout");
     }
     
     IEnumerator<WaitForSeconds> CreateTheMask()
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("MaskCreation");
-        //SceneManager.UnloadSceneAsync("Cutout");
+        SceneManager.LoadScene("MaskCreation", LoadSceneMode.Single);
     }
 }
