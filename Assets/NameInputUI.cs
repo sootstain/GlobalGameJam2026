@@ -9,12 +9,17 @@ public class NameInputUI : MonoBehaviour
     public GameObject panel;
     public DialogueRunner dialogueRunner;
 
+    [Header("Behavior")]
+    [SerializeField] private string defaultNameIfEmpty = "";
+    [SerializeField] private bool allowCancel = true;
+
     private bool submitted = false;
-    
+    private bool cancelled = false;
+
     void Awake()
     {
         panel.SetActive(false);
-        
+
         if (dialogueRunner != null)
         {
             dialogueRunner.AddCommandHandler("show_name_input", ShowNameInput);
@@ -24,41 +29,77 @@ public class NameInputUI : MonoBehaviour
         {
             Debug.LogError("DialogueRunner not assigned!");
         }
+
+        if (nameInput != null)
+        {
+            nameInput.lineType = TMP_InputField.LineType.SingleLine;
+        }
     }
-    
+
     void Update()
     {
-        if (panel.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        if (!panel.activeSelf)
+            return;
+
+        if (allowCancel && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CancelNameInput();
+            return;
+        }
+
+        bool submitPressed =
+            Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            Input.GetKeyDown(KeyCode.E);
+
+        if (submitPressed)
         {
             ConfirmName();
         }
     }
-    
+
     public IEnumerator ShowNameInput()
     {
         submitted = false;
+        cancelled = false;
 
         panel.SetActive(true);
+
         nameInput.text = "";
+
+        nameInput.Select();
         nameInput.ActivateInputField();
-        
-        while (!submitted)
+
+        while (!submitted && !cancelled)
             yield return null;
 
         panel.SetActive(false);
-
-        yield break;
     }
 
     public void ConfirmName()
     {
+        if (submitted || cancelled)
+            return;
+
         string playerName = nameInput.text.Trim();
 
         if (string.IsNullOrEmpty(playerName))
-            return;
+        {
+            if (!string.IsNullOrEmpty(defaultNameIfEmpty))
+                playerName = defaultNameIfEmpty;
+            else
+                return;
+        }
 
         dialogueRunner.VariableStorage.SetValue("$playerName", playerName);
-
         submitted = true;
+    }
+
+    public void CancelNameInput()
+    {
+        if (submitted || cancelled)
+            return;
+
+        cancelled = true;
     }
 }

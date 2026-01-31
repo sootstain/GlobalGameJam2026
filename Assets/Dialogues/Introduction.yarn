@@ -17,52 +17,52 @@ Psykers: WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO !!!
 Announcer: {$playerName} is well known for their artisanal mask creation practice, though their methods remain obscure. Please enjoy the buffet and welcome our first performer ==FADEOUT==
 
 ===
-title: Louise
+title: Concierge
 ---
-Louise: What do you want to know?
--> What is your ideal type?
--> Do you like cats?
-Louise: I like red eyes and black cats.
-Louise: Ok, bye!
+Concierge: Hello {$playerName}! Welcome to the Psycho Killer Annual Convention!
 ===
 title: Carol
 ---
-Carol: What do you want to know?
--> Something that will get me no clues?
--> Something that will get me Clue B? <<if $hasClueA and not $hasClueB>>
-    <<set $hasClueB to true>>
--> Something relating to existing Clue A? <<if $hasClueA>>
--> Something relating to existing Clue B? <<if $hasClueB>>
--> Something relating to existing Clue C? <<if $hasClueC>>
-Carol: ~additional dialogue~
-Carol: Ok, bye!
+Carol: I love eyes that are as big as Potatoes
 ===
 title: Ruby
 ---
-Ruby: What do you want to know?
--> Something that will get me no clues?
--> Something that will get me Clue C? <<if $hasClueB and not $hasClueC>>
-    <<set $hasClueC to true>>
--> Something relating to existing Clue A? <<if $hasClueA>>
--> Something relating to existing Clue B? <<if $hasClueB>>
--> Something relating to existing Clue C? <<if $hasClueC>>
-Ruby: ~additional dialogue~
-Ruby: Ok, bye!
+Ruby: I love red eyes black cats
 ===
 title: Laplacian
 ---
-Ghost: Are you ready to tell me what happened?
--> Yes
-    Ghost: Well, what do you know?
-    -> I have no clues.
-    -> I have clue A. <<if $hasClueA>>
-    -> I have clues A and B. <<if $hasClueB>>
-    -> I have clues A, B and C. <<if $hasClueC>>
-        <<jump Ending>>
-    Ghost: That doesn't sound right...
--> No
-Ghost: Go on and speak to those three!
+Laplacian: I love blue eyes white cats
 ===
+title: Matootie
+---
+Mother ducker here is your one line
+===
+
+title: DJ_ENGHIS
+---
+I like eyes the conquering eyes
+===
+
+title: Finn_Ishhymn
+---
+Have you seen my bestie Finnish Herr
+===
+
+title: Kim_Xi
+---
+Ni Anyounghaseyeo
+===
+
+title: Potato
+---
+I love big potatoes
+===
+
+title: Quakkas
+---
+I love small quakkas
+===
+
 title: Ending
 ---
 Ghost: You solved it!
