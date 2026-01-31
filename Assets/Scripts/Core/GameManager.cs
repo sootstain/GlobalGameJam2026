@@ -17,4 +17,9 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+    
+    public void RestartLevel()
+    {
+        GoToLevel(SceneManager.GetActiveScene().buildIndex);
+    }
 }
