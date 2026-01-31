@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
   m_Name: GermanMan
   m_EditorClassIdentifier: 
-  photo: {fileID: 21300000, guid: 46f90d4f8173d224bad5326601fc0d9d, type: 3}
-  deadPhoto: {fileID: 21300000, guid: 70f703d289dd2ff4bba4277d5293c6cb, type: 3}
-  mouthPhoto: {fileID: 21300000, guid: b17408d2228f5e542894a2f6703cebf6, type: 3}
-  nosePhoto: {fileID: 21300000, guid: 1260eb6e34bef134a8a251d4c1527d18, type: 3}
-  rightEyePhoto: {fileID: 21300000, guid: 6ddf096649d14a6489f8db5c670f107a, type: 3}
-  leftEyePhoto: {fileID: 21300000, guid: 5f85d2824f5255041be9b0371b1725b9, type: 3}
+  photo: {fileID: 21300000, guid: 2e298a7b69bc6204ba6af3bf1e11e1df, type: 3}
+  deadPhoto: {fileID: 21300000, guid: 976da26bdb87d9645ae0aadbd718d209, type: 3}
+  mouthPhoto: {fileID: 21300000, guid: 3edec3457a563a34da7b6fcf5b043974, type: 3}
+  nosePhoto: {fileID: 21300000, guid: 50ea8fd25037b6849a8834a2b099ac5d, type: 3}
+  rightEyePhoto: {fileID: 21300000, guid: f7fca57c1aa876d428fed8d2d2e5be48, type: 3}
+  leftEyePhoto: {fileID: 21300000, guid: 7d724d89a1192094a92bf174a8c77edd, type: 3}
   eyeType: 0
-  mouthType: 0
+  mouthType: 1
   noseType: 0
   loveEyes: 1
-  loveMouth: 0
-  loveNose: 1
+  loveMouth: 1
+  loveNose: 0
   likeEyes: 2
   likeMouth: 1
   likeNose: 0

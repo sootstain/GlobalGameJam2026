@@ -22,10 +22,4 @@ public class NPC : ScriptableObject
     public EyeType loveEyes;
     public MouthType loveMouth;
     public NoseType loveNose;
-    
-    [Header("Likes")]
-    //LIKE
-    public EyeType likeEyes;
-    public MouthType likeMouth;
-    public NoseType likeNose;
 }

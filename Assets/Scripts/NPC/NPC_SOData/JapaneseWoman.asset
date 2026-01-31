@@ -19,9 +19,9 @@ MonoBehaviour:
   rightEyePhoto: {fileID: 21300000, guid: 5726d0c9ea96aa640bf65b1ea5c37a18, type: 3}
   leftEyePhoto: {fileID: 21300000, guid: 8a7f4c2739e67964a82317a582bd3f95, type: 3}
   eyeType: 0
-  mouthType: 0
-  noseType: 0
-  loveEyes: 0
+  mouthType: 1
+  noseType: 1
+  loveEyes: 2
   loveMouth: 0
   loveNose: 0
   likeEyes: 2
