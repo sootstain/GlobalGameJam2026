@@ -9,12 +9,14 @@ public class Cutter : MonoBehaviour
     public LineRenderer lineRenderer;
     //public Texture2D knifeIcon; //TODO: Draw this or find icon
 
+    
     public float distanceThreshold = 0.005f;
 
     public SpriteRenderer target;
     public bool cutoutMode;
     public List<Vector3> cutoutShape;
 
+    public SpriteRenderer emptySprite;
 
     void Update()
     {
@@ -77,8 +79,13 @@ public class Cutter : MonoBehaviour
         Color _blank = new Color(0, 0, 0, 0);
         var polygon = cutoutShape.ToArray();
         var resolution = target.size * target.sprite.pixelsPerUnit;
+
         var mask = new Texture2D((int)resolution.x, (int)resolution.y);
 
+        var holeMask = new Texture2D((int)resolution.x, (int)resolution.y);
+
+        
+        
         for (int x = 0; x < mask.width; x++)
         {
             for (int y = 0; y < mask.height; y++)
@@ -95,14 +102,26 @@ public class Cutter : MonoBehaviour
                 if (PointInPolygon(point, polygon))
                 {
                     mask.SetPixel(x, y, Color.black);
+                    holeMask.SetPixel(x, y, _blank);
+                }
+                else
+                {
+                    mask.SetPixel(x, y, _blank);
+                    holeMask.SetPixel(x, y, Color.white);
                 }
             }
         }
         mask.Apply();
+        holeMask.Apply();
         
         var sprite = Sprite.Create(mask, new Rect(0, 0, mask.width, mask.height), new Vector2(0.5f, 0.5f));
-        target.GetComponent<SpriteMask>().sprite = sprite;
+        emptySprite.GetComponent<SpriteMask>().sprite = sprite;
+        emptySprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+
+        var holeSprite = Sprite.Create(holeMask, new Rect(0, 0, holeMask.width, holeMask.height), new Vector2(0.5f, 0.5f));
+        target.GetComponent<SpriteMask>().sprite = holeSprite;
         target.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        
     }
 
     public static Vector2 PixelToWorldPosition(SpriteRenderer spriteRenderer, Vector2 pixel)
