@@ -1,7 +1,21 @@
-﻿title: Start
+﻿title: Global
 ---
-Speaker: Welcome to the House of Peko Pain!
-Speaker: Stitch the best face to win
+<<declare $playerName = "">>
+===
+
+title: Start
+---
+Announcer: Welcome Psykers, to the 100th ==Psycho Killer Annual Convention==!
+Psykers: Woooooooooooooo!!!
+Announcer: Give a round of applause to our special guest tonight!
+<<show_name_input>>
+Announcer: We all know how hard each of you have worked this year, and we congratulate you. As a way to give back to the community, we have organized a packed programme for you tonight. 
+Not least our special guest, the internationally acclaimed, Fine Art Grant Prix recipient, highly regarded, artist of the year: {$playerName} !
+Psykers: WooooOOOOoooOOOooooO !!!
+Announcer: Our guest of honor will delight us by the end of tonight's festivities, with the ==Mask of Centuries==, an art piece that will be created during the course of this night, with your help.
+Psykers: WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO !!!
+Announcer: {$playerName} is well known for their artisanal mask creation practice, though their methods remain obscure. Please enjoy the buffet and welcome our first performer ==FADEOUT==
+
 ===
 title: Louise
 ---
