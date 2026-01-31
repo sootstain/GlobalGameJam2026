@@ -7,6 +7,7 @@ public class NPC : ScriptableObject
     //Set up for original photos
     public Sprite photo;
     public Sprite deadPhoto;
+    public Texture2D deadPhotoRGB;
     public EyeType eyeType;
     public MouthType mouthType;
     public NoseType noseType;

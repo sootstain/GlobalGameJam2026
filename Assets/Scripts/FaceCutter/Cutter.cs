@@ -21,11 +21,26 @@ public class Cutter : MonoBehaviour
     public List<Vector3> cutoutShape;
 
     public SpriteRenderer emptySprite;
+    PlayerInteraction playerInteraction;
+    
+    [Header("Cutout Validation (RGB reference)")]
+    [SerializeField] private Texture2D referenceRGB;
+    [SerializeField] private float minCoverageToPass = 0.70f;
 
+    [SerializeField] private float minCoverageToPassRed = 0.35f;
+    // Ignore black pixels
+    [SerializeField, UnityEngine.Range(0f, 1f)] private float minChannelValue = 0.20f; 
+    // how much a channel must exceed others to count
+    [SerializeField, UnityEngine.Range(0f, 1f)] private float channelDominanceMargin = 0.15f;
 
+    void Awake()
+    {
+        playerInteraction = FindFirstObjectByType<PlayerInteraction>();
+    }
     void Start()
     {
         emptySprite.enabled = false;
+        referenceRGB = playerInteraction.currentInteraction.npcData.deadPhotoRGB;
     }
     void Update()
     {
@@ -45,6 +60,17 @@ public class Cutter : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             EndCutout();
+            
+            bool valid = ValidateCutoutAgainstReference();
+            Debug.Log($"Cutout valid? {valid}");
+            
+            if (valid) AssignToSO();
+            else
+            {
+                cutoutShape.Clear();
+                target.GetComponent<SpriteMask>().sprite = null;
+                Debug.LogWarning("Cutout invalid!");
+            }
         }
 
     }
@@ -78,6 +104,77 @@ public class Cutter : MonoBehaviour
         lineRenderer.enabled = false;
         
     }
+
+    public bool ValidateCutoutAgainstReference()
+    {
+        if (referenceRGB == null)
+        {
+            Debug.LogWarning($"{nameof(Cutter)}: No referenceRGB assigned. Skipping validation.");
+            return true;
+        }
+        
+        if (cutoutShape == null || cutoutShape.Count < 3)
+            return false;
+        
+        var polygon = cutoutShape.ToArray();
+        
+        int totalRed = 0, totalGreen = 0, totalBlue = 0;
+        int cutRed = 0, cutGreen = 0, cutBlue = 0;
+        
+        int w = referenceRGB.width;
+        int h = referenceRGB.height;
+        
+        for (int x = 0; x < w; x++)
+        {
+            for (int y = 0; y < h; y++)
+            {
+                Color c = referenceRGB.GetPixel(x, y);
+                
+                if (c.a < 0.5f)
+                    continue;
+                
+                bool isRed = c.r > minChannelValue && c.r > c.g + channelDominanceMargin && c.r > c.b + channelDominanceMargin;
+                bool isGreen = c.g > minChannelValue && c.g > c.r + channelDominanceMargin && c.g > c.b + channelDominanceMargin;
+                bool isBlue = c.b > minChannelValue && c.b > c.r + channelDominanceMargin && c.b > c.g + channelDominanceMargin;
+
+                if (!isRed && !isGreen && !isBlue)
+                    continue;
+                
+                var worldPoint = PixelToWorldPosition(target, new Vector2(x, y));
+                bool inside = PointInPolygon(worldPoint, polygon);
+
+                if (isRed)
+                {
+                    totalRed++;
+                    if (inside) cutRed++;
+                }
+                else if (isGreen)
+                {
+                    totalGreen++;
+                    if (inside) cutGreen++;
+                }
+                else if (isBlue)
+                {
+                    totalBlue++;
+                    if (inside) cutBlue++;
+                }
+            }
+        }
+        
+        float redCoverage = totalRed == 0 ? 0f : (float)cutRed / totalRed;
+        float greenCoverage = totalGreen == 0 ? 0f : (float)cutGreen / totalGreen;
+        float blueCoverage = totalBlue == 0 ? 0f : (float)cutBlue / totalBlue;
+
+        Debug.Log($"Coverage R:{redCoverage:P1} G:{greenCoverage:P1} B:{blueCoverage:P1} (pass >= {minCoverageToPass:P0})");
+        
+        bool pass =
+            redCoverage >= minCoverageToPassRed ||
+            greenCoverage >= minCoverageToPass ||
+            blueCoverage >= minCoverageToPass;
+
+        return pass;
+    }
+    
 
     public void CreateCutout()
     {
@@ -132,9 +229,6 @@ public class Cutter : MonoBehaviour
         
         target.GetComponent<SpriteMask>().sprite = holeSprite;
         target.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-
-        
-        AssignToSO();
     }
 
     public static Vector2 PixelToWorldPosition(SpriteRenderer spriteRenderer, Vector2 pixel)

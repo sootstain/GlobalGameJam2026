@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photo: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
   deadPhoto: {fileID: 21300000, guid: a0bfda12aa555e841aa1777d8e919882, type: 3}
+  deadPhotoRGB: {fileID: 2800000, guid: c4f424feda7be534f8fa717eb073969f, type: 3}
   eyeType: 0
   mouthType: 0
   noseType: 0
