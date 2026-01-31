@@ -4,11 +4,11 @@ public class GenerateMask : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
     
-    [SerializeField] EyeSO eye;
+    [SerializeField] BodyPartSO facePart;
     void Start()
     {
-        spriteRenderer.sprite = eye.sprite;
-        spriteRenderer.GetComponent<SpriteMask>().sprite = eye.spriteMask;
-        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            spriteRenderer.sprite = facePart.sprite;
+            spriteRenderer.GetComponent<SpriteMask>().sprite = facePart.spriteMask;
+            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
     }
 }

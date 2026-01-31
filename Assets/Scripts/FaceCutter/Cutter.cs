@@ -10,7 +10,7 @@ public class Cutter : MonoBehaviour
     //public Texture2D knifeIcon; //TODO: Draw this or find icon
 
     //just for testing for now
-    [SerializeField] EyeSO rightEyeSO;
+    [SerializeField] BodyPartSO[] bodyPartSOs;
 
     public float distanceThreshold = 0.005f;
     
@@ -200,9 +200,20 @@ public class Cutter : MonoBehaviour
     {
         //Assuming all masks same size and faces in roughly same position here, if not then aaaaaaaaaaa
 
-            rightEyeSO.sprite = target.GetComponent<SpriteRenderer>().sprite;
-            rightEyeSO.spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
-            rightEyeSO.eyeType = EyeType.Black; //TODO: set this up with the images; SOs for all of them too?
+        for(var x = 0; x < bodyPartSOs.Length; x++)
+        {
+            if (bodyPartSOs[x].spriteMask == null)
+            {
+                bodyPartSOs[x].sprite = target.GetComponent<SpriteRenderer>().sprite;
+                bodyPartSOs[x].spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
+                bodyPartSOs[x].eyeType = EyeType.Black; //TODO: set this up with the images; SOs for all of them too?
+                return;
+            }
+
+            Debug.LogWarning("SO already has a sprite assigned to it");
+            
+        }
+
     }
 
 }
