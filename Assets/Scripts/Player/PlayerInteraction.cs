@@ -40,6 +40,7 @@ public class PlayerInteraction : MonoBehaviour
             if (currentInteraction == null || !currentInteraction.isCurrentConversation)
             {
                 characterController.enabled = true;
+                
             }
         }
     }
