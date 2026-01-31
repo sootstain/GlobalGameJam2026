@@ -1,21 +1,38 @@
 using TMPro;
 using UnityEngine;
 
+
 public class PlayerInteraction : MonoBehaviour
 {
     public Camera playerCamera;
     public float playerInteractionDistance = 30f;
     BasicInteraction currentInteraction;
+    private CharacterController characterController;
 
     [SerializeField] TMP_Text interactText;
-    
+
     void Update()
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentInteraction != null)
-        {
-            currentInteraction.Interact();
-        }
+        TryInteractWithCurrent();
+    }
+
+
+
+    private void TryInteractWithCurrent()
+    {
+        if (!Input.GetKeyDown(KeyCode.E))
+            return;
+
+        if (currentInteraction == null)
+            return;
+
+        characterController = GetComponent<CharacterController>();
+        characterController.enabled = false;
+        currentInteraction.Interact();
+
+        if (!currentInteraction.isCurrentConversation)
+            characterController.enabled = true;
     }
 
     public void CheckInteraction()

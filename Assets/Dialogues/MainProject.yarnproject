@@ -1,0 +1,16 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "**/*.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {
+    "da": {}
+  },
+  "baseLanguage": "en",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}

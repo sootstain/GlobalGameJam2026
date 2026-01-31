@@ -13,12 +13,15 @@ public class BasicPatrol : MonoBehaviour
     private float distanceToPatrolPoint;
 
     float timeSinceArrivedAtWaypoint = Mathf.Infinity;
+    
+    BasicInteraction currentInteraction;
 
     public GameObject patrolParent;
 
 
     public void Start()
     {
+        currentInteraction = GetComponent<BasicInteraction>();
         currentPatrolPointIndex = 0;
         currentLocation = transform.position;
         targetLocation = GetPatrolPoint(currentPatrolPointIndex);
@@ -70,5 +73,15 @@ public class BasicPatrol : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(currentLocation,  targetLocation, SpeedMultiplyer * Time.deltaTime);
         }
+        
+        if (currentInteraction.isCurrentConversation == true)
+        {
+            Wait();
+        }
+    }
+    
+    public void Wait()
+    {
+        transform.position = Vector3.MoveTowards(currentLocation, currentLocation, 0);
     }
 }
