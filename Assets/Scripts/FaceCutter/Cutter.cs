@@ -206,14 +206,11 @@ public class Cutter : MonoBehaviour
             {
                 bodyPartSOs[x].sprite = target.GetComponent<SpriteRenderer>().sprite;
                 bodyPartSOs[x].spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
-                bodyPartSOs[x].eyeType = EyeType.Black; //TODO: set this up with the images; SOs for all of them too?
+
                 return;
             }
-
             Debug.LogWarning("SO already has a sprite assigned to it");
-            
         }
-
     }
 
 }
