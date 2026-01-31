@@ -17,12 +17,35 @@ public class BasicInteraction : MonoBehaviour
     {
         outline = GetComponent<Outline>();
         outline.enabled = false;
-        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
-        
+
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
+        if (dialogueRunner != null)
+        {
+            dialogueRunner.onDialogueComplete.AddListener(EndConversation);
+        }
+        else
+        {
+            Debug.LogWarning($"{nameof(BasicInteraction)}: No DialogueRunner found in scene.");
+        }
     }
-    
+
+    private void OnDestroy()
+    {
+        if (dialogueRunner != null)
+            dialogueRunner.onDialogueComplete.RemoveListener(EndConversation);
+    }
+
     public void Interact()
     {
+        if (dialogueRunner == null)
+        {
+            Debug.LogWarning($"{nameof(BasicInteraction)}: Can't start dialogue; DialogueRunner is null.");
+            return;
+        }
+        
+        if (dialogueRunner.IsDialogueRunning)
+            return;
+
         onInteract.Invoke();
         StartConversation();
     }
@@ -31,24 +54,29 @@ public class BasicInteraction : MonoBehaviour
     {
         outline.enabled = false;
     }
-    
+
     public void EnableOutline()
     {
         outline.enabled = true;
     }
-    
+
     private void StartConversation()
     {
+        if (dialogueRunner == null)
+            return;
+
+        if (!dialogueRunner.isActiveAndEnabled)
+            dialogueRunner.enabled = true;
+        
+        if (dialogueRunner.IsDialogueRunning)
+            return;
+
         isCurrentConversation = true;
         dialogueRunner.StartDialogue(conversationStartNode);
     }
-    
-    private void EndConversation() {
-        if (isCurrentConversation) { 
-            // TODO *stop animation or turn off indicator or whatever* HERE
-            isCurrentConversation = false;
-        }
-    }
-    
 
+    private void EndConversation()
+    {
+        isCurrentConversation = false;
+    }
 }
