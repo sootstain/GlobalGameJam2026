@@ -11,7 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     private CharacterController characterController;
     private bool isInDialogue;
 
-    [SerializeField] TMP_Text interactText;
+    [SerializeField] GameObject interactTextHUD;
 
     private void Awake()
     {
@@ -23,7 +23,17 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         CheckInteraction();
-        TryInteractWithCurrent();
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TryInteractWithCurrent();
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+        }
         
         if (characterController != null && !characterController.enabled && !isInDialogue)
         {
@@ -38,8 +48,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TryInteractWithCurrent()
     {
-        if (!Input.GetKeyDown(KeyCode.E))
-            return;
 
         if (currentInteraction == null)
             return;
@@ -83,12 +91,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         currentInteraction = interaction;
         currentInteraction.EnableOutline();
-        interactText.gameObject.SetActive(true);
+        interactTextHUD.gameObject.SetActive(true);
     }
 
     void DisableCurrentInteraction()
     {
-        interactText.gameObject.SetActive(false);
+        interactTextHUD.gameObject.SetActive(false);
         if (currentInteraction)
         {
             currentInteraction.DisableOutline();
