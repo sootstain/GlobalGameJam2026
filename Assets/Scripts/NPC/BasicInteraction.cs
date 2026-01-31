@@ -34,7 +34,7 @@ public class BasicInteraction : MonoBehaviour
         outline = GetComponent<Outline>();
         outline.enabled = false;
 
-        dialogueRunner = FindObjectOfType<DialogueRunner>();
+        dialogueRunner = FindFirstObjectByType<DialogueRunner>();
         if (dialogueRunner != null)
         {
             dialogueRunner.onDialogueComplete.AddListener(EndConversation);

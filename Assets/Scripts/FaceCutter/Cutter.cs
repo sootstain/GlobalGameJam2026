@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Cutter : MonoBehaviour
 {
@@ -202,10 +203,33 @@ public class Cutter : MonoBehaviour
             {
                 t.sprite = target.GetComponent<SpriteRenderer>().sprite;
                 t.spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
-
+                
+                StartCoroutine(BackToMasquerade());
                 return;
             }
         }
+
+        foreach (var t in bodyPartSOs)
+        {
+            if (t.spriteMask == null) return;
+            //if all full up, transition to the mask creation scene
+            StartCoroutine(CreateTheMask());
+        }
+        
     }
 
+    IEnumerator<WaitForSeconds> BackToMasquerade()
+    {
+        yield return new WaitForSeconds(0.5f);
+        emptySprite.GetComponent<SpriteMask>().sprite = null;
+        target.sprite = null;
+        SceneManager.UnloadSceneAsync("Cutout");
+    }
+    
+    IEnumerator<WaitForSeconds> CreateTheMask()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("MaskCreation");
+        //SceneManager.UnloadSceneAsync("Cutout");
+    }
 }

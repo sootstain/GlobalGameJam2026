@@ -1,18 +1,20 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerInteraction : MonoBehaviour
 {
     public Camera playerCamera;
     public float playerInteractionDistance = 30f;
-    BasicInteraction currentInteraction;
+    public BasicInteraction currentInteraction;
     private CharacterController characterController;
     private bool isInDialogue;
 
     [SerializeField] GameObject interactTextHUD;
-
+    
+    
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -32,7 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
         }
         
         if (characterController != null && !characterController.enabled && !isInDialogue)
