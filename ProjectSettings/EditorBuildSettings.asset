@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutout.unity
     guid: 76b644b306f7ba54f88f80ecdcee33d1
   - enabled: 1
-    path: Assets/Scenes/Sophie_CutoutScene1.unity
-    guid: fbbb2d223d3805c4d8342b9de9d5ad73
-  - enabled: 1
     path: Assets/Scenes/MaskCreation.unity
     guid: 55e7d597276b4174394b48c218c655d5
   m_configObjects:

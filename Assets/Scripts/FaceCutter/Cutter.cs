@@ -208,8 +208,8 @@ public class Cutter : MonoBehaviour
         {
             if (t.spriteMask == null)
             {
-                t.sprite = target.GetComponent<SpriteRenderer>().sprite;
-                t.spriteMask = emptySprite.GetComponent<SpriteMask>().sprite;
+                t.sprite = target.GetComponent<SpriteRenderer>().sprite; // cropped sprite
+                t.spriteMask = emptySprite.GetComponent<SpriteMask>().sprite; // same sprite
                 
                 StartCoroutine(BackToMasquerade());
                 return;
