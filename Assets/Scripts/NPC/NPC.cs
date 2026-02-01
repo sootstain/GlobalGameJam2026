@@ -12,6 +12,8 @@ public class NPC : ScriptableObject
     public Sprite nosePhoto;
     public Sprite rightEyePhoto;
     public Sprite leftEyePhoto;
+
+    public bool isDead;
     
     [Header("Types")]
     public EyeType eyeType;
