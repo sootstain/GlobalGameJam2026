@@ -15,6 +15,7 @@
 ===
 
 title: Start
+tags: announcer
 ---
 Announcer: Settle down, settle down! #line:ann_1_0
 <<set_bg_voices false>>
