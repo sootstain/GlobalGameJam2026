@@ -15,8 +15,8 @@
 ===
 
 title: Start
-tags: announcer
 ---
+<<set_node_tags announcer,debug>>
 Announcer: Settle down, settle down! #line:ann_1_0
 <<set_bg_voices false>>
 Announcer: Welcome Psykers, to the 100th ==Psycho Killer Annual Convention==! #line:ann_1_2

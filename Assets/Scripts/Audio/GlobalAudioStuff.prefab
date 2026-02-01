@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7554fdd9ebd004896899823e646f09ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultVoiceOverClip: {fileID: 8300000, guid: 91da6b7ab984a49a6bebf713d9dfc82a, type: 3}
+  defaultVoiceOverClip: {fileID: 8300000, guid: f96abb1eabab8477a864d873db49fe02, type: 3}
   npcAudio: {fileID: 7496742402333273469}
   bgVoices: {fileID: 8281414869096823988}
   crowdWooSound: {fileID: 5119970642474951577}
