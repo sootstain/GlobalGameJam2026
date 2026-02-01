@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using System.Collections;
 #endif
 
 namespace StarterAssets
@@ -50,9 +52,14 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+		public bool lockMovement = false;
+		
+		public bool isInteracting = false;
+		public bool lockCamera = false;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
+		public CinemachineVirtualCamera cineMachineCamera;
 
 		// player
 		private float _speed;
@@ -63,6 +70,32 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		
+		// force pan variables
+		public bool isForcePan = false;
+		public bool isZoomIn = false;
+		private Vector3 forcePanToPosition;
+		public float forcePanMovementTimeMs = 3;
+		private float panLerpLevel = 0;
+		private float panLerpTimeStart;
+		private float panLerpTimeEnd;
+
+		public float maxZoomFOV = 40;
+		private float currZoomFOV;
+		private float minZoomFOV = 0;
+
+		private float zoomLerpLevel = 0;
+		private float zoomTimeMs = 1;
+
+		private float zoomLerpTimeEnd;
+		private float zoomLerpTimeStart;
+		public int dollyZoomSpeed = 5;
+
+		private Vector3 movePlayerBackDirection;
+
+		public CanvasGroup canvasGroup;
+
+		public bool readyForLevelChange = false;
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -73,6 +106,8 @@ namespace StarterAssets
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
+		
+		private Transform objTransform;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -111,11 +146,48 @@ namespace StarterAssets
 		}
 
 		private void Update()
-		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
-		}
+        {
+            if(!lockMovement){
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+            }
+            else if(isForcePan){
+                if(forcePanToPosition == null){
+                    Debug.LogError("Attempted to force pan without location, aborting...");
+                }
+                else{
+                    Vector3 direction = forcePanToPosition - CinemachineCameraTarget.transform.position;
+                    Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+                    panLerpLevel = (Time.time-panLerpTimeStart)/(panLerpTimeEnd-panLerpTimeStart);
+                    CinemachineCameraTarget.transform.rotation = Quaternion.Lerp(CinemachineCameraTarget.transform.rotation, toRotation, panLerpLevel);
+                    if(panLerpLevel >= 0.1f){
+                        movePlayerBackDirection = Vector3.Normalize(direction);
+                        CinemachineCameraTarget.transform.rotation = toRotation;
+                        Debug.DrawRay(CinemachineCameraTarget.transform.position,movePlayerBackDirection,Color.red,50);
+                        isForcePan = false;
+                        isZoomIn = true;
+                        zoomLerpTimeStart = Time.time;
+                        zoomLerpTimeEnd = zoomLerpTimeStart + zoomTimeMs;
+                    }
+                }
+            }
+            else if(isZoomIn){
+                zoomLerpLevel = (Time.time-zoomLerpTimeStart)/(zoomLerpTimeEnd-zoomLerpTimeStart);
+                float currFOV = Mathf.Lerp(maxZoomFOV,minZoomFOV,zoomLerpLevel);
+                objTransform.position-=movePlayerBackDirection*Time.deltaTime*dollyZoomSpeed;
+                cineMachineCamera.m_Lens.FieldOfView = currFOV;
+                canvasGroup.alpha = zoomLerpLevel;
+                if(currFOV <= minZoomFOV+(minZoomFOV*0.1f)){
+                    isZoomIn = false;
+                    isForcePan = false;
+                    isZoomIn = false;
+                    lockCamera = false;
+                    lockMovement = false;
+                    readyForLevelChange = true;
+                }
+            }
+        }
 
 		private void LateUpdate()
 		{
@@ -247,6 +319,14 @@ namespace StarterAssets
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
+		}
+		
+		public void forcePan(GameObject target){
+			forcePanToPosition = target.transform.position;
+			isForcePan = true;
+			panLerpTimeStart = Time.time;
+			panLerpTimeEnd = panLerpTimeStart + forcePanMovementTimeMs;
+
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
