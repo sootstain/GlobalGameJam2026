@@ -1,3 +1,4 @@
+using ToyBoxHHH;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -19,10 +20,28 @@ public class GlobalAudioStuff : MonoBehaviour
 
     public AudioClip defaultVoiceOverClip;
 
+    public SmartSound bgVoices;
+    public SmartSound crowdWooSound;
+
     [YarnCommand("set_bg_voices")]
     public static void SetBgVoices(bool loud)
     {
+        if (instance.bgVoices != null)
+        {
+            var initVol = instance.bgVoices.audio.volume;
+            var targetVolume = loud ? 1f : 0f;
+            instance.StartCoroutine(pTween.To(1f, t =>
+            {
+                instance.bgVoices.audio.volume = Mathf.Lerp(initVol, targetVolume, t);
 
+            }));
+        }
+    }
+
+    [YarnCommand("crowd_woo")]
+    public static void CrowdWoo()
+    {
+        instance.crowdWooSound.Play();
     }
 
 }
