@@ -11,6 +11,8 @@ public class DoorOpen : MonoBehaviour
     private Quaternion closedRotQuat;
     private Quaternion openRotQuat;
     public bool isOpen = false;
+
+    public event System.Action OnDoorOpen ;
     
     void Start()
     {
@@ -33,5 +35,6 @@ public class DoorOpen : MonoBehaviour
     public void ToggleDoor()
     {
         isOpen = true;
+        OnDoorOpen.Invoke();
     }
 }

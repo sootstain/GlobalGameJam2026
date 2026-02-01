@@ -3,49 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Yarn.Unity;
+using Yarn.Unity.Attributes;
 
 public class fuck_hack : MonoBehaviour
 {
-    public static List<fuck_hack> all = new();
+    public List<DoorOpen> doors;
+    private bool startedDdialoggOnce;
 
-    private bool isFocusHere = false;
-    
-    [SerializeField]
-    private OptionItem _optionItem;
-    public OptionItem optionItem
-    {
-        get
-        {
-            if (_optionItem == null)
-            {
-                _optionItem = GetComponent<OptionItem>();
-            }
-            return _optionItem;
-        }
-    }
+    public DialogueRunner dr;
+    public YarnProject yarnProject;
+    [YarnNode("yarnProject")]
+    public string startNode;
     
     private void OnEnable()
     {
-        all.Add(this);
+        foreach (var d in doors)
+        {
+            d.OnDoorOpen += OnAnyDoor;
+        }
     }
 
-    private void OnDisable()
+    private void OnAnyDoor()
     {
-        all.Remove(this);
-    }
+        if (!startedDdialoggOnce)
+        {
+            startedDdialoggOnce = true;
+            dr.StartDialogue(startNode);
+        }
 
-    private void Update()
-    {
-        if (optionItem.IsHighlighted)
-        {
-            isFocusHere = true;
-        }
-        else
-        {
-            isFocusHere = false;
-        }
-        
-        // EventSystem.current.currentSelectedGameObject
-    
     }
 }
