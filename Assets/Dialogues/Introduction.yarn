@@ -17,6 +17,7 @@
 title: Start
 ---
 <<set_node_tags announcer,debug>>
+<<Announcer Ann>>
 Announcer: Settle down, settle down! #line:ann_1_0
 <<set_bg_voices false>>
 Announcer: Welcome Psykers, to the 100th ==Psycho Killer Annual Convention==! #line:ann_1_2
@@ -42,6 +43,7 @@ Psykers: W0oo000ooo0ooooooOO0o0OO()()O0oOOooo0O()()()()()O1111!!!  #line:063e2df
 Announcer: And don't be killing each other tonight.  #line:ann_1_13
 Announcer: We are professionals, after all. #line:ann_1_14
 <<set_bg_voices  true>>
+<<StopAnnouncer Ann>>
 ===
 
 
@@ -152,6 +154,13 @@ title: Fester
     Player: Thank you for coming! #line:0225303 
 -> Kill them #line:034e05a 
     <<kill Player>>
+===
+
+title: Concierge
+---
+Concierge: Welcome {$playerName}!
+Concierge: Figure out people's preferences and harvest their faces to make the perfect mask
+Concierge: Good luck my young apprentice {$playerName}!
 ===
 
 

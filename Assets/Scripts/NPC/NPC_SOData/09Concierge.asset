@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
+  m_Name: 09Concierge
+  m_EditorClassIdentifier: 
+  characterName: Concierge
+  yarnProject: {fileID: 7545569452688597077, guid: 903b9000dd654f5419c027fcc1ad1ec1, type: 3}
+  yarnNode: Concierge
+  photo: {fileID: 21300000, guid: f8a7a375485690f4b9a2efa98c825e5f, type: 3}
+  deadPhoto: {fileID: 21300000, guid: 70f703d289dd2ff4bba4277d5293c6cb, type: 3}
+  deadPhoto2: {fileID: 21300000, guid: 8973ddcfaaeaf9e4e9725a479534b25d, type: 3}
+  mouthPhoto: {fileID: 21300000, guid: b17408d2228f5e542894a2f6703cebf6, type: 3}
+  nosePhoto: {fileID: 21300000, guid: 1260eb6e34bef134a8a251d4c1527d18, type: 3}
+  rightEyePhoto: {fileID: 21300000, guid: 6ddf096649d14a6489f8db5c670f107a, type: 3}
+  leftEyePhoto: {fileID: 21300000, guid: 5f85d2824f5255041be9b0371b1725b9, type: 3}
+  talking1: {fileID: 21300000, guid: f8a7a375485690f4b9a2efa98c825e5f, type: 3}
+  talking2: {fileID: 21300000, guid: f8a7a375485690f4b9a2efa98c825e5f, type: 3}
+  talking3: {fileID: 21300000, guid: f8a7a375485690f4b9a2efa98c825e5f, type: 3}
+  isDead: 0
+  eyeType: 1
+  mouthType: 0
+  noseType: 1
+  loveEyes: 0
+  loveMouth: 1
+  loveNose: 0
+  languages: []
