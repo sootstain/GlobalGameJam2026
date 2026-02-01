@@ -238,6 +238,8 @@ namespace Yarn.Unity
             return YarnTask.CompletedTask;
         }
 
+        public DialogueRunner dr;
+
         /// <summary>
         /// Called by Unity on first frame.
         /// </summary>
@@ -247,6 +249,8 @@ namespace Yarn.Unity
             {
                 characterNameContainer = characterNameText.gameObject;
             }
+
+            dr.onNodeStart.AddListener(OnNodeStart);
 
             switch (typewriterStyle)
             {
@@ -287,6 +291,18 @@ namespace Yarn.Unity
             }
         }
 
+        private void OnNodeStart(string nodeName)
+        {
+            Debug.Log("Node " + nodeName);
+            // dunno what to do with this info
+            var tagsss = dr.Dialogue.GetHeaderValue(nodeName, "tags");
+            Debug.Log("Tags: " + tagsss);
+            this.currentTags.Clear();
+            currentTags.AddRange(tagsss.Split(','));
+        }
+
+        private List<string> currentTags = new List<string>();
+
         void OnValidate()
         {
             var tw = ValidateCustomTypewriter();
@@ -325,6 +341,8 @@ namespace Yarn.Unity
             return null;
         }
 
+
+
         /// <summary>Presents a line using the configured text view.</summary>
         /// <inheritdoc cref="DialoguePresenterBase.RunLineAsync(LocalizedLine, LineCancellationToken)" path="/param"/>
         /// <inheritdoc cref="DialoguePresenterBase.RunLineAsync(LocalizedLine, LineCancellationToken)" path="/returns"/>
@@ -338,14 +356,26 @@ namespace Yarn.Unity
 
             MarkupParseResult text;
 
+
             var finalLineText = line.TextWithoutCharacterName;
-            // if you know the language, it's ok. otherwise write "??? idk"
-            var npc = NpcManager.instance.FindNpc(line.CharacterName);
-            if (npc != null)
+            bool shouldCheckForLanguage = true;
+
+            if (currentTags.Contains("announcer"))
             {
-                if (!npc.CanSpeakPlayersLanguage())
+                shouldCheckForLanguage = false;
+            }
+
+            if (shouldCheckForLanguage)
+            {
+                // if you know the language, it's ok. otherwise write "??? idk"
+                var npc = NpcManager.instance.FindNpc(line.CharacterName);
+                if (npc != null)
                 {
-                    finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???", new List<MarkupAttribute>());
+                    if (!npc.CanSpeakPlayersLanguage())
+                    {
+                        finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???",
+                            new List<MarkupAttribute>());
+                    }
                 }
             }
 

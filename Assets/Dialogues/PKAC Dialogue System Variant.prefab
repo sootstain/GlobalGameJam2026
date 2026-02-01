@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3859336324316773513, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: cancelDialogueKeyCode
-      value: 0
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 3859336324316773513, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: hurryUpOptionsKeyCode
@@ -374,6 +374,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccdb370bbd5a4312a5e44af933974be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &585179065885898147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+  m_PrefabInstance: {fileID: 8884561012728884497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!225 &1441911265482667008 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 8020628925107869969, guid: 52571f68872914e24837210513edea1d, type: 3}
@@ -467,6 +478,7 @@ MonoBehaviour:
   customTypewriter: {fileID: 0}
   eventHandlers:
   - {fileID: 33997910910462726}
+  dr: {fileID: 585179065885898147}
 --- !u!225 &5927178736088383990 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 2958262985454349543, guid: 52571f68872914e24837210513edea1d, type: 3}
