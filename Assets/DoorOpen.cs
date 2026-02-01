@@ -8,26 +8,30 @@ public class DoorOpen : MonoBehaviour
     public Vector3 openRotation = new Vector3(0, 90, 0);
     public float openSpeed = 2f;
     
-    private Vector3 closedRotation;
-    private Vector3 originalPosition;
+    private Quaternion closedRotQuat;
+    private Quaternion openRotQuat;
     public bool isOpen = false;
     
     void Start()
     {
-        closedRotation = doorTransform.localEulerAngles;
-        originalPosition = doorTransform.localPosition;
+        closedRotQuat = doorTransform.localRotation;
+        openRotQuat = Quaternion.Euler(openRotation);
+    }
+
+    public void Update()
+    {
+        Quaternion targetRotation = isOpen ? openRotQuat : closedRotQuat;
+        doorTransform.localRotation = Quaternion.Lerp(
+            doorTransform.localRotation, 
+            targetRotation, 
+            Time.deltaTime * openSpeed
+        );
+    
     }
 
     
     public void ToggleDoor()
     {
-        Vector3 targetRotation = isOpen ? openRotation : closedRotation;
-        doorTransform.localEulerAngles = Vector3.Lerp(
-            doorTransform.localEulerAngles, 
-            targetRotation, 
-            Time.deltaTime * openSpeed
-        );
-        
         isOpen = true;
     }
 }
