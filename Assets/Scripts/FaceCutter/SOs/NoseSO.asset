@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe7cb7e1742ccb4784196efcb154cde, type: 3}
   m_Name: NoseSO
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b869f61df20b3004d81cf76e6bd1e700, type: 3}
   noseType: 0

@@ -17,7 +17,9 @@ public class PlayerInteraction : MonoBehaviour
     private bool eyesFilled;
     [SerializeField] private BodyPartSO[] collectedParts;
     
-    private Vector3 closetPosition = new(13.4200001f,-12.9350004f,1.92499995f);
+    [SerializeField] private GameObject closetPosition;
+
+    [SerializeField] private List<GameObject> deathlocations;
     
     [SerializeField] GameObject interactTextHUD;
     
@@ -39,6 +41,16 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.K) && currentInteraction != null)
         {
+            //will add a fade to black and scream here later
+            currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
+            currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
+            
+            var x = currentInteraction.GetComponent<BasicPatrol>();
+            if(x != null) x.enabled = false;
+            currentInteraction.enabled = false;
+            
+            deathlocations.RemoveAt(0);
+            
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             HandleCutting();
@@ -168,6 +180,6 @@ public class PlayerInteraction : MonoBehaviour
         
         Debug.Log("Coming out of the closet");
         
-        transform.position = closetPosition;
+        transform.position = closetPosition.transform.position;
     }
 }

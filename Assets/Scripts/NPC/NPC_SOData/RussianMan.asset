@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photo: {fileID: 21300000, guid: 596c6a170b0691a43855fb5e833cd06b, type: 3}
   deadPhoto: {fileID: 21300000, guid: 2a8118fe92398064090b291356dde472, type: 3}
+  deadPhoto2: {fileID: 21300000, guid: cf5ba3518da1215499ecac0a50d6027c, type: 3}
   mouthPhoto: {fileID: 21300000, guid: 15d647014b72bbf4fbae93a808c1fe49, type: 3}
   nosePhoto: {fileID: 21300000, guid: 2f7a73244ee3cd3448fa5c81c8b38c44, type: 3}
   rightEyePhoto: {fileID: 21300000, guid: cd72c7f900794674289c1755d1c5c21f, type: 3}
@@ -24,6 +25,3 @@ MonoBehaviour:
   loveEyes: 2
   loveMouth: 0
   loveNose: 0
-  likeEyes: 2
-  likeMouth: 1
-  likeNose: 0
