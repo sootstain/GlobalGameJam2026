@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class GenerateMask : MonoBehaviour
@@ -6,9 +7,11 @@ public class GenerateMask : MonoBehaviour
     [SerializeField] BodyPartSO facePart;
     void Start()
     {
-            spriteRenderer.sprite = facePart.sprite;
-            this.transform.localPosition = facePart.position;
-            transform.localEulerAngles = facePart.rotation;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        spriteRenderer.sprite = facePart.sprite;
+        this.transform.localPosition = facePart.position;
+        transform.localEulerAngles = facePart.rotation;
     }
 
     public void SavePosition()
