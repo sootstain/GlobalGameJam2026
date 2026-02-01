@@ -1535,7 +1535,7 @@ Transform:
   m_GameObject: {fileID: 176796386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.1, z: 0}
+  m_LocalPosition: {x: 0, y: 3.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2903,7 +2903,7 @@ Transform:
   m_GameObject: {fileID: 325062023}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.09, z: 0}
+  m_LocalPosition: {x: 0, y: 1.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4205,7 +4205,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 678c9abecf77d7c408db565aad1a63e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4248,7 +4248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 527160186}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Francois
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -4266,9 +4266,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   npcData: {fileID: 11400000, guid: b47acf9509c615447a99d6120652560f, type: 2}
-  panToTarget: {fileID: 0}
-  playerCamera: {fileID: 0}
-  controller: {fileID: 0}
+  panToTarget: {fileID: 1125871532}
+  playerCamera: {fileID: 1106461880}
+  controller: {fileID: 1125871531}
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &527160188
@@ -5207,7 +5207,7 @@ Transform:
   m_GameObject: {fileID: 639431829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.08, z: 0}
+  m_LocalPosition: {x: 0, y: 3.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5511,7 +5511,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52f064a65f832684caa16dedc4df7727, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5554,7 +5554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 698852130}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Lasuke
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -5873,7 +5873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 724152267}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Spanish_Granny
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -5891,9 +5891,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   npcData: {fileID: 11400000, guid: b0fe01f211ee5014eba8f731f9b6470e, type: 2}
-  panToTarget: {fileID: 0}
-  playerCamera: {fileID: 0}
-  controller: {fileID: 0}
+  panToTarget: {fileID: 1125871532}
+  playerCamera: {fileID: 1106461880}
+  controller: {fileID: 1125871531}
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!43 &726530106
@@ -12666,7 +12666,7 @@ Transform:
   m_GameObject: {fileID: 1338086547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.26, z: 0}
+  m_LocalPosition: {x: -0.44, y: 3.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12697,7 +12697,7 @@ Transform:
   m_GameObject: {fileID: 1355179636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.04, z: 0}
+  m_LocalPosition: {x: 0, y: 2.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14297,7 +14297,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46f90d4f8173d224bad5326601fc0d9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14340,7 +14340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 1616468797}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Fester
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -14358,9 +14358,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   npcData: {fileID: 11400000, guid: 56e3a499a7f2cbc4e84a697c65083433, type: 2}
-  panToTarget: {fileID: 0}
-  playerCamera: {fileID: 0}
-  controller: {fileID: 0}
+  panToTarget: {fileID: 1125871532}
+  playerCamera: {fileID: 1106461880}
+  controller: {fileID: 1125871531}
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &1616468799
@@ -15686,7 +15686,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 596c6a170b0691a43855fb5e833cd06b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15729,7 +15729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 1861476448}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Russki_Convo
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -15747,9 +15747,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   npcData: {fileID: 11400000, guid: 9cc2065b86967cd4a82af766accd702d, type: 2}
-  panToTarget: {fileID: 0}
-  playerCamera: {fileID: 0}
-  controller: {fileID: 0}
+  panToTarget: {fileID: 1125871532}
+  playerCamera: {fileID: 1106461880}
+  controller: {fileID: 1125871531}
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!43 &1862772471
@@ -16873,7 +16873,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e298a7b69bc6204ba6af3bf1e11e1df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16916,7 +16916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 1993048159}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Pasha
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -18604,7 +18604,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce796b24c2851034f868cdf8e99ff5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1cdffeb217796c4b97b986f0c16d11a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -18647,7 +18647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 2107354729}
   message: Talk to NPC
-  conversationStartNode: Start
+  conversationStartNode: Kristian
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:

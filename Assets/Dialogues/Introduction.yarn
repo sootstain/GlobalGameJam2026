@@ -1,6 +1,15 @@
 ﻿title: Global
 ---
 <<declare $playerName = "">>
+<<declare $RussianGuy = "Vladimir Kanibalovic">>
+<<declare $SpanishGranny = "Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias">>
+<<declare $Poquito = "Poquito Jon">>
+<<declare $Kristian = "Kristian Johannson">>
+<<declare $Francois = "Francois Francis">>
+<<declare $Lasuke = "Lady Sasuke">>
+<<declare $Pasha = "Pasha Vladislav">>
+<<declare $Fester = "Sleaze Fester">>
+
 ===
 
 title: Start
@@ -17,53 +26,42 @@ Psykers: WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO !!!
 Announcer: {$playerName} is well known for their artisanal mask creation practice, though their methods remain obscure. Please enjoy the buffet and welcome our first performer ==FADEOUT==
 
 ===
-title: Concierge
+title: Russki_Convo
 ---
-Concierge: Hello {$playerName}! Welcome to the Psycho Killer Annual Convention!
+{$RussianGuy}: Hello {$playerName}! Welcome to the Psycho Killer Annual Convention!
 ===
-title: Carol
+title: Spanish_Granny
 ---
-Carol: I love eyes that are as big as Potatoes
+{$SpanishGranny}: I love eyes that are as big as Potatoes
 ===
-title: Ruby
+title: Poquito
 ---
-Ruby: I love red eyes black cats
+{$Poquito}: I love red eyes black cats
 ===
-title: Laplacian
+title: Kristian
 ---
-Laplacian: I love blue eyes white cats
+{$Kristian}: I love blue eyes white cats
 ===
-title: Matootie
+title: Francois
 ---
-Mother ducker here is your one line
+{$Francois}: Mother ducker here is your one line
 ===
-
-title: DJ_ENGHIS
+title: Lasuke
 ---
-I like eyes the conquering eyes
-===
-
-title: Finn_Ishhymn
----
-Have you seen my bestie Finnish Herr
+{$Lasuke}: I like eyes the conquering eyes
 ===
 
-title: Kim_Xi
+title: Pasha
 ---
-Ni Anyounghaseyeo
+{$Pasha}: Have you seen my bestie Finnish Herr
 ===
 
-title: Potato
+title: Fester
 ---
-I love big potatoes
-===
-
-title: Quakkas
----
-I love small quakkas
+{$Fester}: I love my eyes
 ===
 
 title: Ending
 ---
-Ghost: You solved it!
+Announcer: You WIN!
 ===
