@@ -61,7 +61,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             //will add a fade to black and scream here later
             
-            
+            currentInteraction.npcData.isDead = true;
             currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
             currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
             
@@ -105,28 +105,32 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (x.sprite == null)
             {
-                if (x is MouthSO)
+                if (x is MouthSO mouthSO)
                 {
-                    x.sprite = currentInteraction.npcData.mouthPhoto;
+                    mouthSO.sprite = currentInteraction.npcData.mouthPhoto;
+                    mouthSO.mouthType = currentInteraction.npcData.mouthType;
                     ComeOutOfTheCloset();
                     return;
                 }
-                if (x is EyeSO && !eyesFilled)
+                if (x is EyeSO eyeSO && !eyesFilled)
                 {
-                    x.sprite = currentInteraction.npcData.rightEyePhoto;
+                    eyeSO.sprite = currentInteraction.npcData.rightEyePhoto;
+                    eyeSO.eyeType = currentInteraction.npcData.eyeType;
                     eyesFilled = true;
                     ComeOutOfTheCloset();
                     return;
                 }
-                if (x is EyeSO && eyesFilled)
+                if (x is EyeSO eyeSO2 && eyesFilled)
                 {
-                    x.sprite = currentInteraction.npcData.leftEyePhoto;
+                    eyeSO2.sprite = currentInteraction.npcData.leftEyePhoto;
+                    eyeSO2.eyeType = currentInteraction.npcData.eyeType;
                     ComeOutOfTheCloset();
                     return;
                 }
-                if (x is NoseSO)
+                if (x is NoseSO noseSO)
                 {
-                    x.sprite = currentInteraction.npcData.nosePhoto;
+                    noseSO.sprite = currentInteraction.npcData.nosePhoto;
+                    noseSO.noseType = currentInteraction.npcData.noseType;
                     ComeOutOfTheCloset();
                     return;
                 }

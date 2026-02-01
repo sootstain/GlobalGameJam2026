@@ -15,6 +15,8 @@ public class NPC : ScriptableObject
     public Sprite talking1;
     public Sprite talking2;
     public Sprite talking3;
+
+    public bool isDead;
     
     [Header("Types")]
     public EyeType eyeType;
