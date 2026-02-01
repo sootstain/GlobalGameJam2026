@@ -26,6 +26,19 @@ namespace Yarn.Unity
     [HelpURL("https://docs.yarnspinner.dev/using-yarnspinner-with-unity/components/dialogue-view/line-view")]
     public sealed class LinePresenterHHH : DialoguePresenterBase
     {
+
+        private static LinePresenterHHH _instance;
+        public static LinePresenterHHH instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindAnyObjectByType<LinePresenterHHH>();
+                }
+                return _instance;
+            }
+        }
         internal enum TypewriterType
         {
             Instant, ByLetter, ByWord, Custom,
@@ -250,8 +263,6 @@ namespace Yarn.Unity
                 characterNameContainer = characterNameText.gameObject;
             }
 
-            // dr.onNodeStart.AddListener(OnNodeStart);
-
             switch (typewriterStyle)
             {
                 case TypewriterType.Instant:
@@ -291,18 +302,6 @@ namespace Yarn.Unity
             }
         }
 
-        private void OnNodeStart(string nodeName)
-        {
-            Debug.Log("Node " + nodeName);
-            // dunno what to do with this info
-            var tagsss = dr.Dialogue.GetHeaderValue(nodeName, "tags");
-            Debug.Log("Tags: " + tagsss);
-            this.currentTags.Clear();
-            currentTags.AddRange(tagsss.Split(','));
-        }
-
-        private List<string> currentTags = new List<string>();
-
         void OnValidate()
         {
             var tw = ValidateCustomTypewriter();
@@ -341,7 +340,14 @@ namespace Yarn.Unity
             return null;
         }
 
+        private List<string> currentTags = new();
 
+        [YarnCommand("set_node_tags")]
+        public static void SetNodeTags(string tags)
+        {
+            instance.currentTags.Clear();
+            instance.currentTags.AddRange(tags.Split(','));
+        }
 
         /// <summary>Presents a line using the configured text view.</summary>
         /// <inheritdoc cref="DialoguePresenterBase.RunLineAsync(LocalizedLine, LineCancellationToken)" path="/param"/>
@@ -357,28 +363,28 @@ namespace Yarn.Unity
             MarkupParseResult text;
             
             var finalLineText = line.TextWithoutCharacterName;
-            // bool shouldCheckForLanguage = true;
-            //
-            // if (currentTags.Contains("announcer")
-            //     || currentTags.Contains("debug")
-            //     )
-            // {
-            //     shouldCheckForLanguage = false;
-            // }
-            //
-            // if (shouldCheckForLanguage)
-            // {
-            //     // if you know the language, it's ok. otherwise write "??? idk"
-            //     var npc = NpcManager.instance.FindNpc(line.CharacterName);
-            //     if (npc != null)
-            //     {
-            //         if (!npc.CanSpeakPlayersLanguage())
-            //         {
-            //             finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???",
-            //                 new List<MarkupAttribute>());
-            //         }
-            //     }
-            // }
+            bool shouldCheckForLanguage = true;
+            
+            if (currentTags.Contains("announcer")
+                || currentTags.Contains("debug")
+                )
+            {
+                shouldCheckForLanguage = false;
+            }
+            
+            if (shouldCheckForLanguage)
+            {
+                // if you know the language, it's ok. otherwise write "??? idk"
+                var npc = NpcManager.instance.FindNpc(line.CharacterName);
+                if (npc != null)
+                {
+                    if (!npc.CanSpeakPlayersLanguage())
+                    {
+                        finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???",
+                            new List<MarkupAttribute>());
+                    }
+                }
+            }
 
             // configuring the text fields
             if (characterNameText == null)
