@@ -4104,6 +4104,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &527160188
@@ -5399,6 +5401,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &698852132
@@ -5718,6 +5722,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!43 &726530106
@@ -14326,6 +14332,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &1616468799
@@ -15726,6 +15734,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!43 &1862772471
@@ -16913,6 +16923,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &1993048161
@@ -18644,6 +18656,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &2107354731
@@ -18713,10 +18727,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeneralAudioStuff
       objectReference: {fileID: 0}
-    - target: {fileID: 9132155732611590926, guid: 795c8e9d298724348a574cd649bff9e7, type: 3}
-      propertyPath: defaultVoiceOverClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 91da6b7ab984a49a6bebf713d9dfc82a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -14,19 +14,31 @@
 
 title: Start
 ---
-Announcer: Settle down, settle down! #line:ann_1_1
+Announcer: Settle down, settle down! #line:ann_1_0
 <<set_bg_voices false>>
 Announcer: Welcome Psykers, to the 100th ==Psycho Killer Annual Convention==! #line:ann_1_2
-Psykers: Woooooooooooooo!!!  #line:0504afc 
-<<show_name_input>>
+<<crowd_woo>>
+Psykers: Woooooooooooooo!!!  #line:10v375v0v7g 
+<<show_name_input>> 
 Announcer: We all know how hard each of you have worked this year, and we congratulate you. #line:ann_1_3
 Announcer: As a way to give back to the community, we have organized a packed programme for you tonight.  #line:ann_1_4
-Announcer: Not least our special guest, the internationally acclaimed, Fine Art Grant Prix recipient, highly regarded, artist of the year: {$playerName} !  #line:08616d9 
+Announcer: Not least our special guest, the internationally acclaimed #line:ann_1_5
+Announcer: Fine Art Grant Prix recipient #line:ann_1_6
+Announcer: Highly regarded #line:ann_1_7
+Announcer: Artist of the year: {$playerName} !  #line:ann_1_8 
+<<crowd_woo>>
 Psykers: WooooOOOOoooOOOooooO !!!  #line:035f29a 
-Announcer: Our guest of honor will delight us by the end of tonight's festivities, with the ==Mask of Centuries==, an art piece that will be created during the course of this night, with your help.  #line:07f467a 
+Announcer: Our guest of honor will delight us by the end of tonight's festivities, with the ==Mask of Centuries== #line:ann_1_9
+Announcer: an art piece that will be created during the course of this night, with your help.  #line:ann_1_10 
+<<crowd_woo>>
 Psykers: WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO !!!  #line:063e2fc 
-Announcer: {$playerName} is well known for their artisanal mask creation practice, though their methods remain obscure. Please enjoy the buffet and welcome our first performer ==FADEOUT==  #line:002831a 
-
+Announcer: {$playerName} is well known for their artisanal mask creation practice, though their methods remain obscure. #line:ann_1_11
+Announcer: Please enjoy the buffet and welcome our first performer ...  #line:ann_1_12 
+<<crowd_woo>>
+Psykers: W0oo000ooo0ooooooOO0o0OO()()O0oOOooo0O()()()()()O1111!!!  #line:063e2dfc 
+Announcer: And don't be killing each other tonight.  #line:ann_1_13
+Announcer: We are professionals, after all. #line:ann_1_14
+<<set_bg_voices  true>>
 ===
 title: Russki_Convo
 ---
