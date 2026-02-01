@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using StarterAssets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,13 @@ public class PlayerInteraction : MonoBehaviour
     public BasicInteraction currentInteraction;
     private CharacterController characterController;
     private bool isInDialogue;
+    
+    [Header("Camera Focus")]
+    [SerializeField] private string npcFaceAnchorName = "FaceAnchor";
+    [SerializeField] private bool lockMovementDuringDialogue = true;
+
+    private FirstPersonController fpController;
+    private bool cameraLockedToNpc;
 
     private bool eyesFilled;
     [SerializeField] private BodyPartSO[] collectedParts;
@@ -28,6 +36,8 @@ public class PlayerInteraction : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        fpController = GetComponent<FirstPersonController>();
+        
         if (playerCamera == null)
             playerCamera = Camera.main;
 
@@ -45,6 +55,7 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteractWithCurrent();
+            
         }
         else if (Input.GetKeyDown(KeyCode.K) && currentInteraction != null)
         {
@@ -63,6 +74,19 @@ public class PlayerInteraction : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             HandleCutting();
+        }
+        
+        if (cameraLockedToNpc && (currentInteraction == null || !currentInteraction.isCurrentConversation))
+        {
+            cameraLockedToNpc = false;
+
+            if (fpController != null)
+                fpController.UnlockCamera();
+
+            if (characterController != null)
+                characterController.enabled = true;
+
+            isInDialogue = false;
         }
         
         if (characterController != null && !characterController.enabled && !isInDialogue)
@@ -110,18 +134,36 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    private Transform GetNpcFaceTarget(BasicInteraction npc)
+    {
+        if (npc == null)
+            return null;
 
+        Transform anchor = npc.transform.Find(npcFaceAnchorName);
+        return anchor != null ? anchor : npc.transform;
+    }
 
     private void TryInteractWithCurrent()
     {
 
         if (currentInteraction == null)
             return;
-
-        if (characterController != null)
+        
+        if (fpController != null)
+        {
+            Transform faceTarget = GetNpcFaceTarget(currentInteraction);
+            if (faceTarget != null)
+            {
+                fpController.LockCameraTo(faceTarget);
+                cameraLockedToNpc = true;
+            }
+        }
+        
+        if (lockMovementDuringDialogue && characterController != null)
             characterController.enabled = false;
 
         currentInteraction.Interact();
+        isInDialogue = true;
     }
 
     public void CheckInteraction()

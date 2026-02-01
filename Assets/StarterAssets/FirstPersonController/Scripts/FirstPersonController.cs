@@ -57,6 +57,10 @@ namespace StarterAssets
 		public bool isInteracting = false;
 		public bool lockCamera = false;
 
+		[Header("Camera Lock")]
+		[SerializeField] private float cameraLockSlerpSpeed = 12f;
+		private Transform _cameraLockTarget;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 		public CinemachineVirtualCamera cineMachineCamera;
@@ -191,6 +195,18 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
+			if (_cameraLockTarget != null)
+			{
+				Vector3 dir = _cameraLockTarget.position - CinemachineCameraTarget.transform.position;
+				if (dir.sqrMagnitude > 0.0001f)
+				{
+					Quaternion targetRot = Quaternion.LookRotation(dir, Vector3.up);
+					CinemachineCameraTarget.transform.rotation =
+						Quaternion.Slerp(CinemachineCameraTarget.transform.rotation, targetRot, Time.deltaTime * cameraLockSlerpSpeed);
+				}
+				return;
+			}
+
 			CameraRotation();
 		}
 
@@ -203,6 +219,9 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			if (lockCamera)
+				return;
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{
@@ -327,6 +346,26 @@ namespace StarterAssets
 			panLerpTimeStart = Time.time;
 			panLerpTimeEnd = panLerpTimeStart + forcePanMovementTimeMs;
 
+		}
+
+		public void LockCameraTo(Transform target)
+		{
+			if (target == null)
+			{
+				Debug.LogWarning($"{nameof(FirstPersonController)}.{nameof(LockCameraTo)} called with null target.");
+				return;
+			}
+
+			_cameraLockTarget = target;
+			lockCamera = true;
+			lockMovement = true;
+		}
+
+		public void UnlockCamera()
+		{
+			_cameraLockTarget = null;
+			lockCamera = false;
+			lockMovement = false;
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
