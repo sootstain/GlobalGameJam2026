@@ -43,36 +43,68 @@ Announcer: We are professionals, after all. #line:ann_1_14
 title: Russki_Convo
 ---
 {$RussianGuy}: Hello {$playerName}! Welcome to the Psycho Killer Annual Convention! #line:0091b13 
+-> Thank you for coming!
+    {$playerName}: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 title: Spanish_Granny
 ---
-{$SpanishGranny}: I love eyes that are as big as Potatoes #line:0602af1 
+{$SpanishGranny}: I love eyes that are as big as Potatoes #line:0602af1
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 title: Poquito
 ---
-{$Poquito}: I love red eyes black cats #line:0271c5b 
+{$Poquito}: I love red eyes black cats #line:0271c5b
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 title: Kristian
 ---
-{$Kristian}: I love blue eyes white cats #line:09e0d64 
+{$Kristian}: I love blue eyes white cats #line:09e0d64
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 title: Francois
 ---
-{$Francois}: Mother ducker here is your one line #line:0e461bd 
+{$Francois}: Mother ducker here is your one line #line:0e461bd
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 title: Lasuke
 ---
-{$Lasuke}: I like eyes the conquering eyes #line:0bd5d93 
+{$Lasuke}: I like eyes the conquering eyes #line:0bd5d93
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 
 title: Pasha
 ---
-{$Pasha}: Have you seen my bestie Finnish Herr #line:0b1975f 
+{$Pasha}: Have you seen my bestie Finnish Herr #line:0b1975f
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 
 title: Fester
 ---
-{$Fester}: I love my eyes #line:034d9ea 
+{$Fester}: I love my eyes #line:034d9ea
+-> Thank you for coming!
+    Player: Thank you for coming!
+-> Kill them
+    <<kill Player>>
 ===
 
 title: Ending

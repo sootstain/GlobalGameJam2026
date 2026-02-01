@@ -5,6 +5,7 @@ using StarterAssets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 
 public class PlayerInteraction : MonoBehaviour
@@ -58,23 +59,6 @@ public class PlayerInteraction : MonoBehaviour
             TryInteractWithCurrent();
             
         }
-        else if (Input.GetKeyDown(KeyCode.K) && currentInteraction != null)
-        {
-            
-            currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
-            currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
-            currentInteraction.npcData.isDead = true;
-            
-            var x = currentInteraction.GetComponent<BasicPatrol>();
-            if(x != null) x.enabled = false;
-            currentInteraction.enabled = false;
-            
-            deathlocations.RemoveAt(0);
-            
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            HandleCutting();
-        }
         
         if (cameraLockedToNpc && (currentInteraction == null || !currentInteraction.isCurrentConversation))
         {
@@ -97,6 +81,28 @@ public class PlayerInteraction : MonoBehaviour
                 
             }
         }
+    }
+
+    [YarnCommand("kill")]
+    public void killNPC()
+    {
+        if (currentInteraction == null)
+        {
+            return;
+        }
+        currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
+        currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
+        currentInteraction.npcData.isDead = true;
+            
+        var x = currentInteraction.GetComponent<BasicPatrol>();
+        if(x != null) x.enabled = false;
+        currentInteraction.enabled = false;
+            
+        deathlocations.RemoveAt(0);
+            
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        HandleCutting();
     }
 
     private void HandleCutting()
