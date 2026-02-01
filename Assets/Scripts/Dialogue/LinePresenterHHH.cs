@@ -355,12 +355,13 @@ namespace Yarn.Unity
             }
 
             MarkupParseResult text;
-
-
+            
             var finalLineText = line.TextWithoutCharacterName;
             bool shouldCheckForLanguage = true;
 
-            if (currentTags.Contains("announcer"))
+            if (currentTags.Contains("announcer")
+                || currentTags.Contains("debug")
+                )
             {
                 shouldCheckForLanguage = false;
             }

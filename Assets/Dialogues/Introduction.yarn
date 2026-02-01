@@ -50,33 +50,47 @@ Announcer: We are professionals, after all. #line:ann_1_14
 title: Russki_Convo
 when: $currentAct == 1
 ---
-{$RussianGuy}: Hello! I'm Russian guy. Nice to meet you!
--> Who are you?
-    {$RussianGuy}: I'm Vladimir Kanibalovic, I'm a Russian guy!
--> Do you have any preferences for the mask?
-    {$RussianGuy}: Back in Mother Russia our great Mask Artist Kugyzin made the greatest mask of all time.
-    {$RussianGuy}: It had green eyes and big fat lips, oh what a joy to behold!
-    -> Thanks!
-    -> Kill them
-    <<kill Player>>
+{$RussianGuy}: Hello! I'm Russian guy. Nice to meet you! #line:0551a1f 
+-> Who are you? #line:0befda8 
+    {$RussianGuy}: I'm Vladimir Kanibalovic Ruski, famous Russian entrepreneur and assassin! #line:0e476b5 
+    {$RussianGuy}: I eat babies for breakfast! #line:0c41e70 
+    -> Damn, such a tough guy! #line:0cf7d89 
+        {$RussianGuy}: Don't make fun of me, I am also a sensitive human being with emotions and dreams. #line:0072f6d 
 
-{$RussianGuy}: Looking forward to see the final result!
+-> Do you have any preferences for the mask? #line:0fd90a6 
+    {$RussianGuy}: Back in Mother Russia our great Mask Artist Kugyzin made the greatest mask of all time. #line:0754997 
+    {$RussianGuy}: It had green eyes and big fat lips, oh what a joy to behold! #line:083e8f3 
+    -> Thanks! #line:03ce38f 
+    -> Kill them #line:000a156 
+        <<kill Player>>
+
+{$RussianGuy}: Looking forward to see the final result! #line:067dbcf 
 
 ===
 
 title: Russki_Convo
 when: $currentAct == 2
 ---
-{$RussianGuy}: Did you hear? The mask is being made! So exciting!
+{$RussianGuy}: Did you hear? The mask is being made! So exciting! #line:087a679 
 ===
 
 
 title: Spanish_Granny
 ---
-{$SpanishGranny}: I love eyes that are as big as Potatoes #line:0602af1
--> Thank you for coming!
-    Player: Thank you for coming!
--> Kill them
+{$SpanishGranny}: Hola! Soy Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias, nice to meet you in person! #line:0602af1
+-> Can you tell me about yourself? #line:0478878 
+    {$SpanishGranny}: I am the countess of Castle Palabralandiamucho, in Southern Espain! #line:0fb370b 
+    {$SpanishGranny}: You should come visit sometimes! #line:0e645f2 
+    {$SpanishGranny}: All the people at the castle have big, luscious lips you can kiss all day! #line:039fd2f 
+    -> I'll consider it!     #line:0e5bb6b 
+
+-> Do you have any preferences for the mask? #line:0db6c44 
+    {$SpanishGranny}: I hope you make it look just like me! #line:0604ae9 
+    {$SpanishGranny}: Well, but make my eyes more green, and juicy kissable lips! #line:07dcf19 
+    -> Gotcha! #line:0689997 
+        <<stop>>
+
+-> Kill them #line:04fc2cd 
     <<kill Player>>
 ===
 
@@ -84,9 +98,9 @@ title: Spanish_Granny
 title: Poquito
 ---
 {$Poquito}: I love red eyes black cats #line:0271c5b
--> Thank you for coming!
-    Player: Thank you for coming!
--> Kill them
+-> Thank you for coming! #line:0cd2d0a 
+    Player: Thank you for coming! #line:0024cf2 
+-> Kill them #line:0afaa8f 
     <<kill Player>>
 ===
 
@@ -94,9 +108,9 @@ title: Poquito
 title: Kristian
 ---
 {$Kristian}: I love blue eyes white cats #line:09e0d64
--> Thank you for coming!
-    Player: Thank you for coming!
--> Kill them
+-> Thank you for coming! #line:08b5bdc 
+    Player: Thank you for coming! #line:051ebd4 
+-> Kill them #line:0471285 
     <<kill Player>>
 ===
 
@@ -104,9 +118,9 @@ title: Kristian
 title: Francois
 ---
 {$Francois}: Mother ducker here is your one line #line:0e461bd
--> Thank you for coming!
-    Player: Thank you for coming!
--> Kill them
+-> Thank you for coming! #line:0ab2f95 
+    Player: Thank you for coming! #line:04fa2ff 
+-> Kill them #line:01a938f 
     <<kill Player>>
 ===
 
@@ -124,9 +138,9 @@ title: Lasuke
 title: Pasha
 ---
 {$Pasha}: Have you seen my bestie Finnish Herr #line:0b1975f
--> Thank you for coming!
-    Player: Thank you for coming!
--> Kill them
+-> Thank you for coming! #line:0c23a8e 
+    Player: Thank you for coming! #line:0bf3c6e 
+-> Kill them #line:065775b 
     <<kill Player>>
 ===
 
@@ -134,9 +148,9 @@ title: Pasha
 title: Fester
 ---
 {$Fester}: I love my eyes #line:034d9ea
--> Thank you for coming!
-    Player: Thank you for coming!
--> Kill them
+-> Thank you for coming! #line:096c04b 
+    Player: Thank you for coming! #line:0225303 
+-> Kill them #line:034e05a 
     <<kill Player>>
 ===
 
