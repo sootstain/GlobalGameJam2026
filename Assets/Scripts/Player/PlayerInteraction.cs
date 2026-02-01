@@ -34,6 +34,8 @@ public class PlayerInteraction : MonoBehaviour
 
     [SerializeField] private GameObject[] fadeObjects;
     
+    [SerializeField] private TMP_Text ObjectiveText;
+    
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -47,7 +49,7 @@ public class PlayerInteraction : MonoBehaviour
             //reset
             x.sprite = null;
         }
-        
+        ObjectiveText.text = "Current Objective: Harvest eyes";
     }
 
     void Update()
@@ -131,13 +133,18 @@ public class PlayerInteraction : MonoBehaviour
                     eyeSO2.sprite = currentInteraction.npcData.leftEyePhoto;
                     eyeSO2.eyeType = currentInteraction.npcData.eyeType;
                     ComeOutOfTheCloset();
+                    
+                    ObjectiveText.text = "Current Objective: Harvest nose";
                     return;
                 }
                 if (x is NoseSO noseSO)
                 {
                     noseSO.sprite = currentInteraction.npcData.nosePhoto;
                     noseSO.noseType = currentInteraction.npcData.noseType;
+                    
                     ComeOutOfTheCloset();
+                    
+                    ObjectiveText.text = "Current Objective: Harvest mouth";
                     return;
                 }
             }
