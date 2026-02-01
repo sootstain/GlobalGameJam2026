@@ -250,7 +250,7 @@ namespace Yarn.Unity
                 characterNameContainer = characterNameText.gameObject;
             }
 
-            dr.onNodeStart.AddListener(OnNodeStart);
+            // dr.onNodeStart.AddListener(OnNodeStart);
 
             switch (typewriterStyle)
             {
@@ -357,28 +357,28 @@ namespace Yarn.Unity
             MarkupParseResult text;
             
             var finalLineText = line.TextWithoutCharacterName;
-            bool shouldCheckForLanguage = true;
-
-            if (currentTags.Contains("announcer")
-                || currentTags.Contains("debug")
-                )
-            {
-                shouldCheckForLanguage = false;
-            }
-
-            if (shouldCheckForLanguage)
-            {
-                // if you know the language, it's ok. otherwise write "??? idk"
-                var npc = NpcManager.instance.FindNpc(line.CharacterName);
-                if (npc != null)
-                {
-                    if (!npc.CanSpeakPlayersLanguage())
-                    {
-                        finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???",
-                            new List<MarkupAttribute>());
-                    }
-                }
-            }
+            // bool shouldCheckForLanguage = true;
+            //
+            // if (currentTags.Contains("announcer")
+            //     || currentTags.Contains("debug")
+            //     )
+            // {
+            //     shouldCheckForLanguage = false;
+            // }
+            //
+            // if (shouldCheckForLanguage)
+            // {
+            //     // if you know the language, it's ok. otherwise write "??? idk"
+            //     var npc = NpcManager.instance.FindNpc(line.CharacterName);
+            //     if (npc != null)
+            //     {
+            //         if (!npc.CanSpeakPlayersLanguage())
+            //         {
+            //             finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???",
+            //                 new List<MarkupAttribute>());
+            //         }
+            //     }
+            // }
 
             // configuring the text fields
             if (characterNameText == null)
@@ -434,7 +434,7 @@ namespace Yarn.Unity
             }
 
             // play audio here?
-            GlobalAudioStuff.instance.PlayAudio(line);
+            // GlobalAudioStuff.instance.PlayAudio(line);
 
             await Typewriter.RunTypewriter(text, token.HurryUpToken).SuppressCancellationThrow();
 
