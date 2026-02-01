@@ -22,8 +22,8 @@ public class BasicInteraction : MonoBehaviour
     [SerializeField] private GameObject panToTarget;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private FirstPersonController controller;
-    [SerializeField] private int waitforsecondslow = 1;
-    [SerializeField] private int waitforsecondshigh = 3;
+    [SerializeField] private int waitforsecondslow = 2;
+    [SerializeField] private int waitforsecondshigh = 5;
     
     [Header("Facing")]
     [SerializeField] private float facePlayerPanSeconds = 0.25f;
