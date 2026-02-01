@@ -29,7 +29,7 @@ MonoBehaviour:
   eyeType: 0
   mouthType: 0
   noseType: 0
-  loveEyes: 2
+  loveEyes: 1
   loveMouth: 0
   loveNose: 0
   languages:

@@ -112,6 +112,9 @@ public class BasicInteraction : MonoBehaviour
             if (_faceRoutine != null) StopCoroutine(_faceRoutine);
             _faceRoutine = StartCoroutine(PanFaceTargetThenLock(_playerFaceTarget, facePlayerPanSeconds));
         }
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         onInteract.Invoke();
 
@@ -198,5 +201,7 @@ public class BasicInteraction : MonoBehaviour
         {
             spriteRenderer.sprite = npcData.photo;
         }
+        
+        Cursor.visible = false;
     }
 }
