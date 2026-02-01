@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,8 +13,8 @@ public class RunwayWalk : MonoBehaviour
 
     public NPC[] npcs;
     public BodyPartSO[] bodyParts;
-    public int score;
-    public int finalScore;
+    public float score = 0;
+    public float finalScore;
 
     bool eyesFilled;
     
@@ -28,25 +29,43 @@ public class RunwayWalk : MonoBehaviour
                 if (bodyPart is MouthSO mouth)
                 {
                     if (mouth.mouthType == npc.loveMouth) score++;
+                    Debug.Log(">" + npc.name + " " + npc.loveMouth + " " + mouth.mouthType + "");
+                    break;
                 }
-                else if (bodyPart is EyeSO eyeSO1 && !eyesFilled)
+                if (bodyPart is EyeSO eyeSO1 && !eyesFilled)
                 {
                     if (eyeSO1.eyeType == npc.loveEyes) score++;
+                    Debug.Log(">" + npc.name + " " + npc.loveEyes + " " + eyeSO1.eyeType + "");
                     eyesFilled = true;
+                    break;
                 }
-                else if (bodyPart is EyeSO eyeSO2)
+                if (bodyPart is EyeSO eyeSO2)
                 {
                     if (eyeSO2.eyeType == npc.loveEyes) score++;
+                    Debug.Log(">" + npc.name + " " + npc.loveEyes + " " + eyeSO2.eyeType + "");
+                    break;
                 }
-                else if (bodyPart is NoseSO nose)
+                if (bodyPart is NoseSO nose)
                 {
                     if (nose.noseType == npc.loveNose) score++;
+                    Debug.Log(">" + npc.name + " " + npc.loveNose + " " + nose.noseType + "");
+                    break;
                 }
             }
+            eyesFilled = false;
         }
         
-        finalScore = (score/12) * 100;
+        Debug.Log("Score:" + score);
+        
+        var aliveNPCS = npcs.Count(_ => _.isDead == false) * 4;
+        
+        finalScore = Mathf.CeilToInt((score/aliveNPCS) * 100);
+        
+        Debug.Log("Final Score: +" + finalScore);
+        Debug.Log("Alive:" + aliveNPCS);
+        
         scoreText.text = finalScore + "%";
+        
         if (finalScore > 50)
         {
             scoreText.color = Color.green;

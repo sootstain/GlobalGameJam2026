@@ -46,6 +46,7 @@ public class PlayerInteraction : MonoBehaviour
             //reset
             x.sprite = null;
         }
+        
     }
 
     void Update()
@@ -59,11 +60,10 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.K) && currentInteraction != null)
         {
-            //will add a fade to black and scream here later
             
-            currentInteraction.npcData.isDead = true;
             currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
             currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
+            currentInteraction.npcData.isDead = true;
             
             var x = currentInteraction.GetComponent<BasicPatrol>();
             if(x != null) x.enabled = false;

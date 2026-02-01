@@ -2,12 +2,17 @@ using UnityEngine;
 using Yarn.Unity;
 using TMPro;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class NameInputUI : MonoBehaviour
 {
     public TMP_InputField nameInput;
     public GameObject panel;
     public DialogueRunner dialogueRunner;
+
+    [Header("Player Lock")]
+    [SerializeField] private StarterAssets.FirstPersonController playerController;
+    [SerializeField] private bool unlockCursorWhileTyping = true;
 
     [Header("Behavior")]
     [SerializeField] private string defaultNameIfEmpty = "";
@@ -19,6 +24,9 @@ public class NameInputUI : MonoBehaviour
     void Awake()
     {
         panel.SetActive(false);
+
+        if (playerController == null)
+            playerController = FindFirstObjectByType<StarterAssets.FirstPersonController>();
 
         if (dialogueRunner != null)
         {
@@ -49,8 +57,7 @@ public class NameInputUI : MonoBehaviour
 
         bool submitPressed =
             Input.GetKeyDown(KeyCode.Return) ||
-            Input.GetKeyDown(KeyCode.KeypadEnter) ||
-            Input.GetKeyDown(KeyCode.E);
+            Input.GetKeyDown(KeyCode.KeypadEnter);
 
         if (submitPressed)
         {
@@ -60,6 +67,14 @@ public class NameInputUI : MonoBehaviour
 
     public IEnumerator ShowNameInput()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        if (playerController != null)
+            playerController.lockCamera = true;
+
+        if (playerController != null)
+            playerController.lockMovement = true;
+        
         submitted = false;
         cancelled = false;
 
@@ -74,6 +89,21 @@ public class NameInputUI : MonoBehaviour
             yield return null;
 
         panel.SetActive(false);
+
+        if (unlockCursorWhileTyping)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if (playerController != null)
+            playerController.lockCamera = false;
+
+        if (playerController != null)
+            playerController.lockMovement = false;
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ConfirmName()

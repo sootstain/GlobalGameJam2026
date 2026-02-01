@@ -3731,6 +3731,8 @@ MonoBehaviour:
   nameInput: {fileID: 730650705}
   panel: {fileID: 488474740}
   dialogueRunner: {fileID: 1680098366}
+  playerController: {fileID: 1125871531}
+  unlockCursorWhileTyping: 1
   defaultNameIfEmpty: 
   allowCancel: 1
 --- !u!114 &488474743
@@ -4104,6 +4106,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &527160188
@@ -5399,6 +5403,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &698852132
@@ -5427,6 +5433,8 @@ GameObject:
   - component: {fileID: 711242654}
   - component: {fileID: 711242656}
   - component: {fileID: 711242655}
+  - component: {fileID: 711242658}
+  - component: {fileID: 711242657}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5553,6 +5561,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711242653}
   m_CullTransparentMesh: 1
+--- !u!114 &711242657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711242653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!223 &711242658
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711242653}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &724152263
 GameObject:
   m_ObjectHideFlags: 0
@@ -5718,6 +5766,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!43 &726530106
@@ -14326,6 +14376,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &1616468799
@@ -15726,6 +15778,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!43 &1862772471
@@ -16913,6 +16967,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &1993048161
@@ -17935,6 +17991,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_EventSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5148107578835001787, guid: f0271df749728104eac22c3d897fd8ce, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 272734179}
     - target: {fileID: 8063073397250431797, guid: f0271df749728104eac22c3d897fd8ce, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -18644,6 +18704,8 @@ MonoBehaviour:
   panToTarget: {fileID: 1125871532}
   playerCamera: {fileID: 1106461880}
   controller: {fileID: 1125871531}
+  waitforsecondslow: 1
+  waitforsecondshigh: 3
   facePlayerPanSeconds: 0.25
   billboardToCameraWhenIdle: 1
 --- !u!114 &2107354731
@@ -18713,10 +18775,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeneralAudioStuff
       objectReference: {fileID: 0}
-    - target: {fileID: 9132155732611590926, guid: 795c8e9d298724348a574cd649bff9e7, type: 3}
-      propertyPath: defaultVoiceOverClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 91da6b7ab984a49a6bebf713d9dfc82a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
