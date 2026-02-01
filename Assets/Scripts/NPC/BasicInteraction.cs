@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Yarn;
 using Yarn.Unity;
+using Random = UnityEngine.Random;
 
 public class BasicInteraction : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BasicInteraction : MonoBehaviour
     public bool isCurrentConversation;
     BasicInteraction currentInteraction;
     public UnityEvent onInteract;
+    private bool isInCoroutine;
 
     public NPC npcData;
     private SpriteRenderer spriteRenderer;
@@ -21,6 +23,8 @@ public class BasicInteraction : MonoBehaviour
     [SerializeField] private GameObject panToTarget;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private FirstPersonController controller;
+    [SerializeField] private int waitforsecondslow = 1;
+    [SerializeField] private int waitforsecondshigh = 3;
     
     [Header("Facing")]
     [SerializeField] private float facePlayerPanSeconds = 0.25f;
@@ -40,6 +44,31 @@ public class BasicInteraction : MonoBehaviour
     {
         //See if we like this or not; will need to also update during path movement I think
         transform.LookAt(Camera.main.transform);
+
+        if (isCurrentConversation && !isInCoroutine)
+        {
+            StartCoroutine(AnimateTalkingSprites());
+            isInCoroutine = true;
+        }
+        
+    }
+    
+    private System.Collections.IEnumerator AnimateTalkingSprites()
+    {
+        switch (Random.Range(1, 4))
+        {
+            case 1:
+                spriteRenderer.sprite = npcData.talking1;
+                break;
+            case 2: 
+                spriteRenderer.sprite = npcData.talking2; 
+                break;
+            case 3:
+                spriteRenderer.sprite = npcData.talking3;
+                break;
+        }
+        yield return new WaitForSeconds(Random.Range(waitforsecondslow, waitforsecondshigh));
+        isInCoroutine = false;
     }
 
     void Start()
@@ -86,6 +115,24 @@ public class BasicInteraction : MonoBehaviour
         }
 
         onInteract.Invoke();
+
+        if (spriteRenderer)
+        {
+            int randomTalk = UnityEngine.Random.Range(1, 4);
+            switch (randomTalk)
+            {
+                case 1:
+                    spriteRenderer.sprite = npcData.talking1;
+                    break;
+                case 2: 
+                    spriteRenderer.sprite = npcData.talking2;
+                    break;
+                case 3:
+                    spriteRenderer.sprite = npcData.talking3;
+                    break;
+            }
+        }
+        
         StartConversation();
         
     }
@@ -148,5 +195,6 @@ public class BasicInteraction : MonoBehaviour
     private void EndConversation()
     {
         isCurrentConversation = false;
+        spriteRenderer.sprite = npcData.photo;
     }
 }
