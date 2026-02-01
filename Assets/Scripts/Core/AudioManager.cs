@@ -231,23 +231,23 @@ public class AudioManager : MonoBehaviour
     
     public void PlayMusicForLevel()
     {
-        /*int level = SceneManager.GetActiveScene().buildIndex;
+        int level = SceneManager.GetActiveScene().buildIndex;
 
         switch (level) //Guesses for now
         {
             case 0: 
-                PlayMusic("MenuMusic"); 
+                PlayMusic("darkintro"); 
                 break;
             case 1:
-                PlayMusic("MainLevel");
+                PlayMusic("main");
                 break;
             case 2:
-                PlayMusic("Surgery");
+                PlayMusic("darkslow");
                 break;
             case 3:
-                PlayMusic("Runway");
+                PlayMusic("darkhappy");
                 break;
-        }*/
+        }
     }
 
     public void StopMusic()
