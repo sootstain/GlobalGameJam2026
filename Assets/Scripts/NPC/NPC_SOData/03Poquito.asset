@@ -28,7 +28,7 @@ MonoBehaviour:
   isDead: 0
   eyeType: 0
   mouthType: 1
-  noseType: 0
+  noseType: 1
   loveEyes: 1
   loveMouth: 1
   loveNose: 0

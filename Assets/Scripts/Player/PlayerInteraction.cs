@@ -101,9 +101,6 @@ public class PlayerInteraction : MonoBehaviour
         currentInteraction.enabled = false;
             
         deathlocations.RemoveAt(0);
-            
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         HandleCutting();
     }
 
