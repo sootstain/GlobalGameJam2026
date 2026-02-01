@@ -37,6 +37,7 @@ public class BasicInteraction : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        npcData.isDead = false;
     }
 
     private void Update()

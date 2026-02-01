@@ -7,7 +7,7 @@
       "dependencies": {}
     },
     "com.unity.addressables": {
-      "version": "2.8.0",
+      "version": "2.7.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -17,7 +17,7 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.scriptablebuildpipeline": "2.5.1",
+        "com.unity.scriptablebuildpipeline": "2.5.0",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -86,11 +86,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.26",
+      "version": "2.0.23",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.33"
+        "com.unity.test-framework": "1.1.9"
       },
       "url": "https://packages.unity.com"
     },
@@ -214,7 +214,7 @@
       }
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "2.5.1",
+      "version": "2.5.0",
       "depth": 2,
       "source": "registry",
       "dependencies": {
@@ -339,6 +339,13 @@
         "com.unity.shadergraph": "14.0.0"
       },
       "hash": "13f258df535f432de0517b2db519af9a19561a0b"
+    },
+    "horatiu665.toybox": {
+      "version": "https://github.com/horatiu665/toybox.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1537afa399efca9ccdf9bb788d4053428ddad67a"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
