@@ -64,7 +64,13 @@ public class NPC : ScriptableObject
 
     }
 
-    public bool CanSpeak(NpcLanguages playerLang)
+    public bool CanSpeakPlayersLanguage()
+    {
+        // todo
+        return languages.Any(l => l.language == NpcLanguages.ENGLISH);
+    }
+    
+    public bool CanSpeakLanguage(NpcLanguages playerLang)
     {
         return languages.Any(l => l.language == playerLang);
     }

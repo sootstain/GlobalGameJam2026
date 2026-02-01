@@ -32,4 +32,8 @@ MonoBehaviour:
   loveEyes: 2
   loveMouth: 0
   loveNose: 0
-  languages: []
+  languages:
+  - language: 0
+    audioGreeting: {fileID: 0}
+    audioILikeThis: []
+    audioMisc: []

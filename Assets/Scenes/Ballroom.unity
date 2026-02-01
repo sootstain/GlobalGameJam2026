@@ -6859,6 +6859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PKAC Dialogue System Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5675468858477302168, guid: c79fb4ffb269a40dbbdf7c0092296ac6, type: 3}
+      propertyPath: cancelDialogueKeyCode
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 5927178735660231238, guid: c79fb4ffb269a40dbbdf7c0092296ac6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

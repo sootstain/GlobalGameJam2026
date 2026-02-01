@@ -338,6 +338,17 @@ namespace Yarn.Unity
 
             MarkupParseResult text;
 
+            var finalLineText = line.TextWithoutCharacterName;
+            // if you know the language, it's ok. otherwise write "??? idk"
+            var npc = NpcManager.instance.FindNpc(line.CharacterName);
+            if (npc != null)
+            {
+                if (!npc.CanSpeakPlayersLanguage())
+                {
+                    finalLineText = new MarkupParseResult("??? (You can't understand this person's language) ???", new List<MarkupAttribute>());
+                }
+            }
+
             // configuring the text fields
             if (characterNameText == null)
             {
@@ -347,12 +358,12 @@ namespace Yarn.Unity
                 }
                 else
                 {
-                    text = line.TextWithoutCharacterName;
+                    text = finalLineText;
                 }
             }
             else
             {
-                text = line.TextWithoutCharacterName;
+                text = finalLineText;
 
                 // we are configured to show character names in their own little box, but this line doesn't have one
                 if (characterNameContainer != null)
@@ -390,7 +401,7 @@ namespace Yarn.Unity
                     canvasGroup.alpha = 1;
                 }
             }
-            
+
             // play audio here?
             GlobalAudioStuff.instance.PlayAudio(line);
 
