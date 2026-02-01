@@ -95,6 +95,8 @@ public class PlayerInteraction : MonoBehaviour
         currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
         currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
         currentInteraction.npcData.isDead = true;
+        AudioManager.instance.PlayOneshotSFX("knifeNasty");
+        AudioManager.instance.PlayOneshotSFX("scream");
             
         var x = currentInteraction.GetComponent<BasicPatrol>();
         if(x != null) x.enabled = false;
