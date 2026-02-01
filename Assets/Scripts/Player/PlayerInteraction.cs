@@ -180,15 +180,24 @@ public class PlayerInteraction : MonoBehaviour
         };
 
         
-        transform.position = closetPosition.transform.position;
-        
         foreach (var x in fadeObjects)
         {
             x.SetActive(true);
             x.GetComponent<Animation>().Play();
         }
         
+        
+        StartCoroutine(TeleportCoroutine());
+        
         Debug.Log("Coming out of the closet");
         
+    }
+
+    public IEnumerator<WaitForSeconds> TeleportCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        characterController.enabled = false;
+        transform.position = closetPosition.transform.position;
+        characterController.enabled = true;
     }
 }
