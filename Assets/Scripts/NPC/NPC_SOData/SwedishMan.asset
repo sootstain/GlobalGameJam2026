@@ -19,6 +19,9 @@ MonoBehaviour:
   nosePhoto: {fileID: 21300000, guid: f408d7f68d22b4f4bb7521df592e5c7b, type: 3}
   rightEyePhoto: {fileID: 21300000, guid: f2f30c28529eb0b4688423556a16b13d, type: 3}
   leftEyePhoto: {fileID: 21300000, guid: a3786826fc19e6341bb5d786c497944e, type: 3}
+  talking1: {fileID: 21300000, guid: 87a0697cbf4c1164d9abf505d0ee7867, type: 3}
+  talking2: {fileID: 21300000, guid: f6a6eb10c21c4cb4a98f13a62be755e8, type: 3}
+  talking3: {fileID: 21300000, guid: 45c9a8ac8f0f2a645b99c52ee32c2525, type: 3}
   eyeType: 0
   mouthType: 1
   noseType: 0
