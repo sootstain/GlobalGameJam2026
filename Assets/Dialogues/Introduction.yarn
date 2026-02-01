@@ -10,6 +10,8 @@
 <<declare $Pasha = "Pasha Vladislav">>
 <<declare $Fester = "Sleaze Fester">>
 
+<<declare $currentAct = 1>>
+
 ===
 
 title: Start
@@ -19,10 +21,10 @@ Announcer: Settle down, settle down! #line:ann_1_0
 Announcer: Welcome Psykers, to the 100th ==Psycho Killer Annual Convention==! #line:ann_1_2
 <<crowd_woo>>
 Psykers: Woooooooooooooo!!!  #line:10v375v0v7g 
-<<show_name_input>> 
 Announcer: We all know how hard each of you have worked this year, and we congratulate you. #line:ann_1_3
 Announcer: As a way to give back to the community, we have organized a packed programme for you tonight.  #line:ann_1_4
 Announcer: Not least our special guest, the internationally acclaimed #line:ann_1_5
+<<show_name_input>> 
 Announcer: Fine Art Grant Prix recipient #line:ann_1_6
 Announcer: Highly regarded #line:ann_1_7
 Announcer: Artist of the year: {$playerName} !  #line:ann_1_8 
@@ -40,40 +42,77 @@ Announcer: And don't be killing each other tonight.  #line:ann_1_13
 Announcer: We are professionals, after all. #line:ann_1_14
 <<set_bg_voices  true>>
 ===
+
+
+
+
 title: Russki_Convo
+when: $currentAct == 1
 ---
-{$RussianGuy}: Hello {$playerName}! Welcome to the Psycho Killer Annual Convention! #line:0091b13 
+{$RussianGuy}: Hello! I'm Russian guy. Nice to meet you!
+-> Who are you?
+    {$RussianGuy}: I'm Vladimir Kanibalovic, I'm a Russian guy!
+-> Do you have any preferences for the mask?
+    {$RussianGuy}: Back in Mother Russia our great Mask Artist Kugyzin made the greatest mask of all time.
+    {$RussianGuy}: It had green eyes and big fat lips, oh what a joy to behold!
+    -> Thanks!
+
+{$RussianGuy}: Looking forward to see the final result!
+
 ===
+
+title: Russki_Convo
+when: $currentAct == 2
+---
+{$RussianGuy}: Did you hear? The mask is being made! So exciting!
+===
+
+
 title: Spanish_Granny
 ---
 {$SpanishGranny}: I love eyes that are as big as Potatoes #line:0602af1 
 ===
+
+
 title: Poquito
 ---
 {$Poquito}: I love red eyes black cats #line:0271c5b 
 ===
+
+
 title: Kristian
 ---
 {$Kristian}: I love blue eyes white cats #line:09e0d64 
 ===
+
+
 title: Francois
 ---
 {$Francois}: Mother ducker here is your one line #line:0e461bd 
 ===
+
+
 title: Lasuke
 ---
 {$Lasuke}: I like eyes the conquering eyes #line:0bd5d93 
+{$Lasuke}: I like eyes the conquering eyes2 #line:0bd5d933
+{$Lasuke}: I like eyes the conquering eyes3 #line:0bd5d934 
+{$Lasuke}: I like eyes the conquering eyes4 #line:0bd5d935
 ===
+
+
 
 title: Pasha
 ---
 {$Pasha}: Have you seen my bestie Finnish Herr #line:0b1975f 
 ===
 
+
 title: Fester
 ---
 {$Fester}: I love my eyes #line:034d9ea 
 ===
+
 
 title: Ending
 ---
