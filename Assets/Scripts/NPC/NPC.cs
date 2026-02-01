@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using Yarn.Unity;
+using Yarn.Unity.Attributes;
 
 public enum NpcLanguages
 {
@@ -17,6 +19,10 @@ public enum NpcLanguages
 [CreateAssetMenu(fileName = "NPCSO", menuName = "Scriptable Objects/NPC")]
 public class NPC : ScriptableObject
 {
+    public string characterName = "Sasuke";
+    public YarnProject yarnProject;
+    [YarnNode("yarnProject")] public string yarnNode;
+
     [Header("Attributes")]
     //Set up for original photos
     public Sprite photo;
@@ -63,4 +69,8 @@ public class NPC : ScriptableObject
         return languages.Any(l => l.language == playerLang);
     }
 
+    public string GetConversation()
+    {
+        return yarnNode;
+    }
 }

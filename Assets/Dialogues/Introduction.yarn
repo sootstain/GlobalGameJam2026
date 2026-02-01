@@ -1,7 +1,7 @@
 ﻿title: Global
 ---
 <<declare $playerName = "THE MASK ARTIST">>
-<<declare $RussianGuy = "Vladimir Kanibalovic">>
+<<declare $RussianGuy = "Vladimir Kanibalovic Ruski">>
 <<declare $SpanishGranny = "Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias">>
 <<declare $Poquito = "Poquito Jon">>
 <<declare $Kristian = "Kristian Johannson">>

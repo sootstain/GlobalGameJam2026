@@ -4250,7 +4250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 527160186}
   message: Talk to NPC
-  conversationStartNode: Francois
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -5547,7 +5546,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 698852130}
   message: Talk to NPC
-  conversationStartNode: Lasuke
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -5910,7 +5908,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 724152267}
   message: Talk to NPC
-  conversationStartNode: Spanish_Granny
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -12883,13 +12880,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcAssets:
-  - {fileID: 11400000, guid: 71f7b260ac5b13a4c81119f55f326efb, type: 2}
-  - {fileID: 11400000, guid: 56e3a499a7f2cbc4e84a697c65083433, type: 2}
-  - {fileID: 11400000, guid: b47acf9509c615447a99d6120652560f, type: 2}
-  - {fileID: 11400000, guid: 466566757502a9e40bd3ef22517e006b, type: 2}
-  - {fileID: 11400000, guid: c495d9ff86ec7444d8eb50464dbdac14, type: 2}
   - {fileID: 11400000, guid: 9cc2065b86967cd4a82af766accd702d, type: 2}
+  - {fileID: 11400000, guid: e5d4bc9dd9688477d8a6e7f86550fe2d, type: 2}
+  - {fileID: 11400000, guid: 466566757502a9e40bd3ef22517e006b, type: 2}
+  - {fileID: 11400000, guid: 71f7b260ac5b13a4c81119f55f326efb, type: 2}
+  - {fileID: 11400000, guid: b47acf9509c615447a99d6120652560f, type: 2}
+  - {fileID: 11400000, guid: c495d9ff86ec7444d8eb50464dbdac14, type: 2}
   - {fileID: 11400000, guid: b0fe01f211ee5014eba8f731f9b6470e, type: 2}
+  - {fileID: 11400000, guid: 56e3a499a7f2cbc4e84a697c65083433, type: 2}
 --- !u!1 &1329590873
 GameObject:
   m_ObjectHideFlags: 0
@@ -14891,7 +14889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 1616468797}
   message: Talk to NPC
-  conversationStartNode: Fester
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -16293,7 +16290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 1861476448}
   message: Talk to NPC
-  conversationStartNode: Russki_Convo
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -17482,7 +17478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 1993048159}
   message: Talk to NPC
-  conversationStartNode: Pasha
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:
@@ -19219,7 +19214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 2107354729}
   message: Talk to NPC
-  conversationStartNode: Kristian
   isCurrentConversation: 0
   onInteract:
     m_PersistentCalls:

@@ -11,7 +11,6 @@ public class BasicInteraction : MonoBehaviour
     public Outline outline;
     public string message;
     private DialogueRunner dialogueRunner;
-    public string conversationStartNode = "Start";
     public bool isCurrentConversation;
     BasicInteraction currentInteraction;
     public UnityEvent onInteract;
@@ -189,7 +188,7 @@ public class BasicInteraction : MonoBehaviour
             return;
 
         isCurrentConversation = true;
-        dialogueRunner.StartDialogue(conversationStartNode);
+        dialogueRunner.StartDialogue(npcData.GetConversation());
     }
 
     private void EndConversation()

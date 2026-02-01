@@ -33,7 +33,7 @@ public class NpcManager : MonoBehaviour
 
     public NPC FindNpc(string lineCharacterName)
     {
-        var npc = npcAssets.FirstOrDefault(n => n.name == lineCharacterName);
+        var npc = npcAssets.FirstOrDefault(n => n.characterName == lineCharacterName);
         if (npc == null)
             return npcAssets[0];
         return npc;

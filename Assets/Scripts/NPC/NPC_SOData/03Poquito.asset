@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
-  m_Name: GermanMan
+  m_Name: 03Poquito
   m_EditorClassIdentifier: 
+  characterName: Poquito Jon
+  yarnProject: {fileID: 7545569452688597077, guid: 903b9000dd654f5419c027fcc1ad1ec1, type: 3}
+  yarnNode: Poquito
   photo: {fileID: 21300000, guid: 2e298a7b69bc6204ba6af3bf1e11e1df, type: 3}
   deadPhoto: {fileID: 21300000, guid: 976da26bdb87d9645ae0aadbd718d209, type: 3}
   deadPhoto2: {fileID: 21300000, guid: 241f9c149a0564a489d7692fc9bec79c, type: 3}
@@ -22,9 +25,11 @@ MonoBehaviour:
   talking1: {fileID: 21300000, guid: 9d6f1a7e7715e6d4ba50c82892c55089, type: 3}
   talking2: {fileID: 21300000, guid: b03658303d4686d4b86414dc44ad4128, type: 3}
   talking3: {fileID: 21300000, guid: c6f7d8e66027390488f1335529dd7298, type: 3}
+  isDead: 0
   eyeType: 0
   mouthType: 1
   noseType: 0
   loveEyes: 1
   loveMouth: 1
   loveNose: 0
+  languages: []

@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
-  m_Name: DanishMan
+  m_Name: 02Senorita___duplicate
   m_EditorClassIdentifier: 
+  characterName: Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias
+  yarnProject: {fileID: 7545569452688597077, guid: 903b9000dd654f5419c027fcc1ad1ec1, type: 3}
+  yarnNode: Spanish_Granny
   photo: {fileID: 21300000, guid: e1cdffeb217796c4b97b986f0c16d11a, type: 3}
   deadPhoto: {fileID: 21300000, guid: 8d42099607c988142b2c7abde05e8f6d, type: 3}
   deadPhoto2: {fileID: 21300000, guid: 30d10c68d9bab09439dd0b52f52af1eb, type: 3}
@@ -22,9 +25,11 @@ MonoBehaviour:
   talking1: {fileID: 21300000, guid: 8941c8586daa58f408ed475898fbe474, type: 3}
   talking2: {fileID: 21300000, guid: 5435fefd10c97224888fec5e22e887d4, type: 3}
   talking3: {fileID: 21300000, guid: 43695691c96fb7742b41fa71555e6f6e, type: 3}
+  isDead: 0
   eyeType: 0
   mouthType: 1
   noseType: 0
   loveEyes: 0
   loveMouth: 1
   loveNose: 1
+  languages: []

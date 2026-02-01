@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
-  m_Name: FrenchMan
+  m_Name: 05Francois
   m_EditorClassIdentifier: 
+  characterName: Francois Francis
+  yarnProject: {fileID: 7545569452688597077, guid: 903b9000dd654f5419c027fcc1ad1ec1, type: 3}
+  yarnNode: Francois
   photo: {fileID: 21300000, guid: 678c9abecf77d7c408db565aad1a63e8, type: 3}
   deadPhoto: {fileID: 21300000, guid: 40982a5e786a51a46aeef8f4b2ee3276, type: 3}
   deadPhoto2: {fileID: 21300000, guid: 2c0f1f6383a2edb4095cb98ebea23fc1, type: 3}
@@ -22,9 +25,11 @@ MonoBehaviour:
   talking1: {fileID: 21300000, guid: b0eab4a094729df448b7cd037673635c, type: 3}
   talking2: {fileID: 21300000, guid: 40ff5c0709a2efd46b649ca8581d4e5c, type: 3}
   talking3: {fileID: 21300000, guid: 1c1f964d75b77ce478b4aeb4e212d363, type: 3}
+  isDead: 0
   eyeType: 0
   mouthType: 1
   noseType: 0
   loveEyes: 1
   loveMouth: 1
   loveNose: 1
+  languages: []

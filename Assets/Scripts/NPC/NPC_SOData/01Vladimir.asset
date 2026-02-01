@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
-  m_Name: RussianMan
+  m_Name: 01Vladimir
   m_EditorClassIdentifier: 
+  characterName: Vladimir Kanibalovic Ruski
+  yarnProject: {fileID: 7545569452688597077, guid: 903b9000dd654f5419c027fcc1ad1ec1, type: 3}
+  yarnNode: Russki_Convo
   photo: {fileID: 21300000, guid: 596c6a170b0691a43855fb5e833cd06b, type: 3}
   deadPhoto: {fileID: 21300000, guid: 2a8118fe92398064090b291356dde472, type: 3}
   deadPhoto2: {fileID: 21300000, guid: cf5ba3518da1215499ecac0a50d6027c, type: 3}
@@ -22,9 +25,11 @@ MonoBehaviour:
   talking1: {fileID: 21300000, guid: ee8700def6ff3c544b5499aa0e17678d, type: 3}
   talking2: {fileID: 21300000, guid: 315a51b3fc36ff24ea61b21ea6993287, type: 3}
   talking3: {fileID: 21300000, guid: e7962d732bc5e4b4c95d7833046fcade, type: 3}
+  isDead: 0
   eyeType: 0
   mouthType: 0
   noseType: 0
   loveEyes: 2
   loveMouth: 0
   loveNose: 0
+  languages: []

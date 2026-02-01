@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11f3d75b759b5e479db4018befa6972, type: 3}
-  m_Name: JapaneseWoman
+  m_Name: 06Sasuke
   m_EditorClassIdentifier: 
+  characterName: Lady Sasuke
+  yarnProject: {fileID: 7545569452688597077, guid: 903b9000dd654f5419c027fcc1ad1ec1, type: 3}
+  yarnNode: Lasuke
   photo: {fileID: 21300000, guid: 52f064a65f832684caa16dedc4df7727, type: 3}
   deadPhoto: {fileID: 21300000, guid: 78459466fa5723d4bab6ab3c39e7bbb9, type: 3}
   deadPhoto2: {fileID: 21300000, guid: a8f70c131bd8fdc4f9ccb34df3aeaf23, type: 3}
@@ -22,9 +25,11 @@ MonoBehaviour:
   talking1: {fileID: 21300000, guid: de7612d03165de84fb358d5eb75c2cbc, type: 3}
   talking2: {fileID: 21300000, guid: 4b9d001e31388f048ae94434c0a16d23, type: 3}
   talking3: {fileID: 21300000, guid: b1e0c920fc87e20498e7a2cdace99344, type: 3}
+  isDead: 0
   eyeType: 0
   mouthType: 1
   noseType: 1
   loveEyes: 2
   loveMouth: 0
   loveNose: 0
+  languages: []
