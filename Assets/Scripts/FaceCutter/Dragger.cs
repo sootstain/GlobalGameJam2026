@@ -8,8 +8,14 @@ public class Dragger : MonoBehaviour
     private Camera cam;
 
     private bool isDragging;
+    private bool isRotating;
 
     private SpriteRenderer sprite;
+    
+    private float sensitivity = 0.4f;
+    private Vector3 mouseReference;
+    private Vector3 mouseOffset;
+    private Vector3 rotation;
     
     void Awake()
     {
@@ -34,7 +40,25 @@ public class Dragger : MonoBehaviour
             {
                 sprite.sortingOrder = 1;
             }
-        } 
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (IsPixelAtPosition(GetMousePosition()))
+            {
+                isRotating = true;
+                mouseReference = Input.mousePosition;
+            }
+        }
+
+        if (Input.GetMouseButton(1) && isRotating)
+        {
+            mouseOffset = (Input.mousePosition - mouseReference);
+            
+            transform.Rotate(0, 0, -mouseOffset.x * sensitivity);
+
+            mouseReference = Input.mousePosition;
+        }
 
         if (Input.GetMouseButton(0) && isDragging)
         {
@@ -44,6 +68,11 @@ public class Dragger : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
+        }
+        
+        if (Input.GetMouseButtonUp(1))
+        {
+            isRotating = false;
         }
     }
 

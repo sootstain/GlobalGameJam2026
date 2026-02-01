@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd3f230a2fd9ef46844e823cb7808bd, type: 3}
   m_Name: RightEyeSO
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 5726d0c9ea96aa640bf65b1ea5c37a18, type: 3}
+  sprite: {fileID: 0}
   eyeType: 0

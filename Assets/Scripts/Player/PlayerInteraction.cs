@@ -22,7 +22,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private List<GameObject> deathlocations;
     
     [SerializeField] GameObject interactTextHUD;
-    
+
+    [SerializeField] private GameObject[] fadeObjects;
     
     private void Awake()
     {
@@ -42,6 +43,8 @@ public class PlayerInteraction : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.K) && currentInteraction != null)
         {
             //will add a fade to black and scream here later
+            
+            
             currentInteraction.gameObject.transform.position = deathlocations[0].transform.position;
             currentInteraction.gameObject.GetComponent<SpriteRenderer>().sprite = currentInteraction.npcData.deadPhoto2;
             
@@ -175,11 +178,17 @@ public class PlayerInteraction : MonoBehaviour
             SceneManager.LoadScene("MaskCreationManualCut", LoadSceneMode.Single);
             return;
         };
+
         
-        //will add a fade to black and scream here later
+        transform.position = closetPosition.transform.position;
+        
+        foreach (var x in fadeObjects)
+        {
+            x.SetActive(true);
+            x.GetComponent<Animation>().Play();
+        }
         
         Debug.Log("Coming out of the closet");
         
-        transform.position = closetPosition.transform.position;
     }
 }
