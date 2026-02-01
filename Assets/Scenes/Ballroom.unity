@@ -3731,6 +3731,8 @@ MonoBehaviour:
   nameInput: {fileID: 730650705}
   panel: {fileID: 488474740}
   dialogueRunner: {fileID: 1680098366}
+  playerController: {fileID: 1125871531}
+  unlockCursorWhileTyping: 1
   defaultNameIfEmpty: 
   allowCancel: 1
 --- !u!114 &488474743
