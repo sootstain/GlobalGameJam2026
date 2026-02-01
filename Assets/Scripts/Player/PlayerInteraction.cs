@@ -118,7 +118,7 @@ public class PlayerInteraction : MonoBehaviour
                     eyeSO.eyeType = currentInteraction.npcData.eyeType;
                     eyesFilled = true;
                     ComeOutOfTheCloset();
-                    return;
+                    continue;
                 }
                 if (x is EyeSO eyeSO2 && eyesFilled)
                 {

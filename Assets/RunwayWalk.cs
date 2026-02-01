@@ -15,8 +15,7 @@ public class RunwayWalk : MonoBehaviour
     public BodyPartSO[] bodyParts;
     public float score = 0;
     public float finalScore;
-
-    bool eyesFilled;
+    
     
     public TMP_Text scoreText;
     
@@ -32,17 +31,10 @@ public class RunwayWalk : MonoBehaviour
                     Debug.Log(">" + npc.name + " " + npc.loveMouth + " " + mouth.mouthType + "");
                     break;
                 }
-                if (bodyPart is EyeSO eyeSO1 && !eyesFilled)
+                if (bodyPart is EyeSO eyeSO)
                 {
-                    if (eyeSO1.eyeType == npc.loveEyes) score++;
-                    Debug.Log(">" + npc.name + " " + npc.loveEyes + " " + eyeSO1.eyeType + "");
-                    eyesFilled = true;
-                    break;
-                }
-                if (bodyPart is EyeSO eyeSO2)
-                {
-                    if (eyeSO2.eyeType == npc.loveEyes) score++;
-                    Debug.Log(">" + npc.name + " " + npc.loveEyes + " " + eyeSO2.eyeType + "");
+                    if (eyeSO.eyeType == npc.loveEyes) score++;
+                    Debug.Log(">" + npc.name + " " + npc.loveEyes + " " + eyeSO.eyeType + "");
                     break;
                 }
                 if (bodyPart is NoseSO nose)
@@ -52,12 +44,11 @@ public class RunwayWalk : MonoBehaviour
                     break;
                 }
             }
-            eyesFilled = false;
         }
         
         Debug.Log("Score:" + score);
         
-        var aliveNPCS = npcs.Count(_ => _.isDead == false) * 4;
+        var aliveNPCS = npcs.Count(_ => _.isDead == false) * 3; //changed so only 1 point for eyes since they'll be the same type
         
         finalScore = Mathf.CeilToInt((score/aliveNPCS) * 100);
         
@@ -85,6 +76,7 @@ public class RunwayWalk : MonoBehaviour
         }
         else
         {
+            //oh it pepega LMAO
             GetComponent<Animator>().enabled = false;
             GetComponent<SpriteRenderer>().sprite = yay;
             StartCoroutine(FadeBacktoMenu());

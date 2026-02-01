@@ -2,21 +2,19 @@ using UnityEngine;
 public enum EyeType
 {
     Blue,
-    Brown,
-    Green,
-    Black
+    Green
 }
 
 public enum MouthType
 {
-    Open,
-    Closed
+    Plump,
+    Thin
 }
 
 public enum NoseType
 {
-    Big, //I would cry but
-    Small
+    Mole,
+    NoMole
 }
 
 public enum BodyType
