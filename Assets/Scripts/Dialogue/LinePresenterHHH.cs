@@ -390,6 +390,9 @@ namespace Yarn.Unity
                     canvasGroup.alpha = 1;
                 }
             }
+            
+            // play audio here?
+            GlobalAudioStuff.instance.PlayAudio(line);
 
             await Typewriter.RunTypewriter(text, token.HurryUpToken).SuppressCancellationThrow();
 

@@ -20,6 +20,8 @@ public class GlobalAudioStuff : MonoBehaviour
 
     public AudioClip defaultVoiceOverClip;
 
+    public SmartSound npcAudio;
+
     public SmartSound bgVoices;
     public SmartSound crowdWooSound;
 
@@ -44,4 +46,15 @@ public class GlobalAudioStuff : MonoBehaviour
         instance.crowdWooSound.Play();
     }
 
+    public void PlayAudio(LocalizedLine line)
+    {
+        // find character
+        var npc = NpcManager.instance.FindNpc(line.CharacterName);
+        
+        var clip = npc.languages[0].audioGreeting;
+        npcAudio.clips.Clear();
+        npcAudio.clips.Add(clip);
+        npcAudio.Play(); 
+
+    }
 }

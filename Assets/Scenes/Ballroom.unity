@@ -12840,6 +12840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306580144}
+  - component: {fileID: 1306580145}
   m_Layer: 0
   m_Name: NPCs
   m_TagString: Untagged
@@ -12869,6 +12870,26 @@ Transform:
   - {fileID: 724152264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306580145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306580143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6034093e264741e4bfd0e8831330b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAssets:
+  - {fileID: 11400000, guid: 71f7b260ac5b13a4c81119f55f326efb, type: 2}
+  - {fileID: 11400000, guid: 56e3a499a7f2cbc4e84a697c65083433, type: 2}
+  - {fileID: 11400000, guid: b47acf9509c615447a99d6120652560f, type: 2}
+  - {fileID: 11400000, guid: 466566757502a9e40bd3ef22517e006b, type: 2}
+  - {fileID: 11400000, guid: c495d9ff86ec7444d8eb50464dbdac14, type: 2}
+  - {fileID: 11400000, guid: 9cc2065b86967cd4a82af766accd702d, type: 2}
+  - {fileID: 11400000, guid: b0fe01f211ee5014eba8f731f9b6470e, type: 2}
 --- !u!1 &1329590873
 GameObject:
   m_ObjectHideFlags: 0
