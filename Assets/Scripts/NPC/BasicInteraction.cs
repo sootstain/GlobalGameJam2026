@@ -195,6 +195,9 @@ public class BasicInteraction : MonoBehaviour
     private void EndConversation()
     {
         isCurrentConversation = false;
-        spriteRenderer.sprite = npcData.photo;
+        if (!npcData.isDead)
+        {
+            spriteRenderer.sprite = npcData.photo;
+        }
     }
 }
