@@ -20,20 +20,23 @@ public class NpcManager : MonoBehaviour
 
     public List<NPC> npcAssets;
 
-/*
-<<declare $RussianGuy = "Vladimir Kanibalovic">>
-<<declare $SpanishGranny = "Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias">>
-<<declare $Poquito = "Poquito Jon">>
-<<declare $Kristian = "Kristian Johannson">>
-<<declare $Francois = "Francois Francis">>
-<<declare $Lasuke = "Lady Sasuke">>
-<<declare $Pasha = "Pasha Vladislav">>
-<<declare $Fester = "Sleaze Fester">>
-*/
+    /*
+    <<declare $RussianGuy = "Vladimir Kanibalovic">>
+    <<declare $SpanishGranny = "Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias">>
+    <<declare $Poquito = "Poquito Jon">>
+    <<declare $Kristian = "Kristian Johannson">>
+    <<declare $Francois = "Francois Francis">>
+    <<declare $Lasuke = "Lady Sasuke">>
+    <<declare $Pasha = "Pasha Vladislav">>
+    <<declare $Fester = "Sleaze Fester">>
+    */
 
     public NPC FindNpc(string lineCharacterName)
     {
-        return npcAssets.First(n=>n.name == lineCharacterName);
-        
+        var npc = npcAssets.FirstOrDefault(n => n.name == lineCharacterName);
+        if (npc == null)
+            return npcAssets[0];
+        return npc;
+
     }
 }

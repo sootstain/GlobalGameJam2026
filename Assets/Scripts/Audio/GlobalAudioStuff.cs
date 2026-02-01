@@ -50,11 +50,20 @@ public class GlobalAudioStuff : MonoBehaviour
     {
         // find character
         var npc = NpcManager.instance.FindNpc(line.CharacterName);
-        
+
+        if (npc == null)
+            return;
+
+        if (npc.languages.Length == 0)
+            return;
+
         var clip = npc.languages[0].audioGreeting;
+        if (clip == null)
+            return;
+
         npcAudio.clips.Clear();
         npcAudio.clips.Add(clip);
-        npcAudio.Play(); 
+        npcAudio.Play();
 
     }
 }
