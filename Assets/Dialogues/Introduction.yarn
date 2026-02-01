@@ -77,7 +77,7 @@ when: $currentAct == 2
 title: Spanish_Granny
 ---
 {$SpanishGranny}: Hola! Soy Senorita Alonso Guerrero Ortiz Maria Fernanda Muchosgracias, nice to meet you in person! #line:0602af1
--> Can you tell me about yourself? #line:0478878 
+-> Can you tell me about yourself? #line:0478878 #greeting
     {$SpanishGranny}: I am the countess of Castle Palabralandiamucho, in Southern Espain! #line:0fb370b 
     {$SpanishGranny}: You should come visit sometimes! #line:0e645f2 
     {$SpanishGranny}: All the people at the castle have big, luscious lips you can kiss all day! #line:039fd2f 
@@ -96,6 +96,7 @@ title: Spanish_Granny
 
 title: Poquito
 ---
+{$Poquito}: Hallojojo! #line:eruygfi34yfg #greeting
 {$Poquito}: I love red eyes black cats #line:0271c5b
 -> Thank you for coming! #line:0cd2d0a 
     Player: Thank you for coming! #line:0024cf2 
@@ -106,6 +107,7 @@ title: Poquito
 
 title: Kristian
 ---
+{$Kristian}: Hej! #greeting #line:2983fg634f
 {$Kristian}: I love blue eyes white cats #line:09e0d64
 -> Thank you for coming! #line:08b5bdc 
     Player: Thank you for coming! #line:051ebd4 
@@ -116,7 +118,8 @@ title: Kristian
 
 title: Francois
 ---
-{$Francois}: Mother ducker here is your one line #line:0e461bd
+{$Francois}: Hi #line:0e461bd #greeting
+{$Francois}: Mother ducker here is your one line #line:0e461bd333
 -> Thank you for coming! #line:0ab2f95 
     Player: Thank you for coming! #line:04fa2ff 
 -> Kill them #line:01a938f 
@@ -126,6 +129,7 @@ title: Francois
 
 title: Lasuke
 ---
+{$Lasuke}: Hi #line:0e46sdfsdfd1bd #greeting
 {$Lasuke}: I like eyes the conquering eyes #line:0bd5d93 
 {$Lasuke}: I like eyes the conquering eyes2 #line:0bd5d933
 {$Lasuke}: I like eyes the conquering eyes3 #line:0bd5d934 
@@ -136,6 +140,7 @@ title: Lasuke
 
 title: Pasha
 ---
+{$Pasha}: Hi #line:0e46sdffwsdfd1bd #greeting
 {$Pasha}: Have you seen my bestie Finnish Herr #line:0b1975f
 -> Thank you for coming! #line:0c23a8e 
     Player: Thank you for coming! #line:0bf3c6e 
@@ -146,6 +151,7 @@ title: Pasha
 
 title: Fester
 ---
+{$Fester}: Hi #line:fhwoe3 #greeting
 {$Fester}: I love my eyes #line:034d9ea
 -> Thank you for coming! #line:096c04b 
     Player: Thank you for coming! #line:0225303 
