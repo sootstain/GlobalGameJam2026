@@ -58,16 +58,13 @@ when: $currentAct == 1
     {$RussianGuy}: I eat babies for breakfast! #line:0c41e70 
     -> Damn, such a tough guy! #line:0cf7d89 
         {$RussianGuy}: Don't make fun of me, I am also a sensitive human being with emotions and dreams. #line:0072f6d 
-
 -> Do you have any preferences for the mask? #line:0fd90a6 
     {$RussianGuy}: Back in Mother Russia our great Mask Artist Kugyzin made the greatest mask of all time. #line:0754997 
     {$RussianGuy}: It had green eyes and big fat lips, oh what a joy to behold! #line:083e8f3 
     -> Thanks! #line:03ce38f 
     -> Kill them #line:000a156 
         <<kill Player>>
-
 {$RussianGuy}: Looking forward to see the final result! #line:067dbcf 
-
 ===
 
 title: Russki_Convo

@@ -32,4 +32,24 @@ MonoBehaviour:
   loveEyes: 0
   loveMouth: 0
   loveNose: 0
-  languages: []
+  languages:
+  - language: 7
+    audioGreeting: {fileID: 8300000, guid: 149b560515d0cb14a88479c3599d233f, type: 3}
+    audioILikeThis:
+    - {fileID: 8300000, guid: 3f85d7aea3b25f246b59a01ae34cb7dc, type: 3}
+    audioMisc:
+    - {fileID: 8300000, guid: a6dfccf59e6fb7742a7825cb6ef69dfa, type: 3}
+    - {fileID: 8300000, guid: fc9d951684841da4eb189a29a07f9cf7, type: 3}
+    - {fileID: 8300000, guid: 4cedb8483b550a942be8ae05fed8f8a5, type: 3}
+    - {fileID: 8300000, guid: 50ac64ff61dc8d647b529341cf1187ab, type: 3}
+  - language: 2
+    audioGreeting: {fileID: 8300000, guid: cf8adc13fb9014c4ead1df408c3c9597, type: 3}
+    audioILikeThis:
+    - {fileID: 8300000, guid: ac8e8b1f4da6248d3b4f4ab664c3d33a, type: 3}
+    - {fileID: 8300000, guid: 9d8862db7ac074017be12024d298fd3f, type: 3}
+    - {fileID: 8300000, guid: fb49ab13137544a2299578f35c394930, type: 3}
+    audioMisc:
+    - {fileID: 8300000, guid: 44faf6252da5444a5b9539fa05d83041, type: 3}
+    - {fileID: 8300000, guid: 443d3c9cbdda0466681b9c7cc9d67ba1, type: 3}
+    - {fileID: 8300000, guid: baecaf00054364095a07a81eeb59685a, type: 3}
+    - {fileID: 8300000, guid: 031922adef42549fca5d636589b8dd11, type: 3}

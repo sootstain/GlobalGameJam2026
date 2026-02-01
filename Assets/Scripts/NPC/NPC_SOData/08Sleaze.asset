@@ -32,4 +32,21 @@ MonoBehaviour:
   loveEyes: 0
   loveMouth: 1
   loveNose: 1
-  languages: []
+  languages:
+  - language: 7
+    audioGreeting: {fileID: 8300000, guid: f6821ebdc06df4aa9b80fcfc2063e6a6, type: 3}
+    audioILikeThis:
+    - {fileID: 8300000, guid: 18c53c93ac3024740bdc82261749ab68, type: 3}
+    audioMisc:
+    - {fileID: 8300000, guid: dc4983159dfa342f8b4cca4e6e2cd928, type: 3}
+    - {fileID: 8300000, guid: eb58997d72bfe4f32a8e0e650949203c, type: 3}
+    - {fileID: 8300000, guid: 277bbc74e2d3149a18de0bc15c0189c7, type: 3}
+    - {fileID: 8300000, guid: 29fd540a871cd49eaa02a1cbc74f3a16, type: 3}
+  - language: 5
+    audioGreeting: {fileID: 8300000, guid: 4326fa2b5f2b64b258886ba660a2b07f, type: 3}
+    audioILikeThis:
+    - {fileID: 8300000, guid: 3c31e365366494d139db8ec10c468671, type: 3}
+    audioMisc:
+    - {fileID: 8300000, guid: 58c7881a117af42489f2e59c97b7f8ed, type: 3}
+    - {fileID: 8300000, guid: 3e966cbd9bb0d45849e6004feb88f5aa, type: 3}
+    - {fileID: 8300000, guid: 174b7299f0ac646b0bf6689ca0a63db4, type: 3}
