@@ -1,3 +1,4 @@
+using System.Linq;
 using ToyBoxHHH;
 using UnityEngine;
 using Yarn.Unity;
@@ -56,13 +57,35 @@ public class GlobalAudioStuff : MonoBehaviour
 
         if (npc.languages.Length == 0)
             return;
+        
+        if (line.Metadata.Contains("greeting"))
+        {
+            var clip = npc.languages[0].audioGreeting;
+            if (clip == null)
+                return;
 
-        var clip = npc.languages[0].audioGreeting;
-        if (clip == null)
-            return;
+            npcAudio.clips.Clear();
+            npcAudio.clips.Add(clip);
+        }
+        else if (line.Metadata.Contains("like"))
+        {
+            var clips = npc.languages[0].audioILikeThis;
+            if (clips == null)
+                return;
 
-        npcAudio.clips.Clear();
-        npcAudio.clips.Add(clip);
+            npcAudio.clips.Clear();
+            npcAudio.clips.AddRange(clips);
+        } else
+        {
+            
+            var clips = npc.languages[0].audioMisc;
+            if (clips == null)
+                return;
+
+            npcAudio.clips.Clear();
+            npcAudio.clips.AddRange(clips);
+        }
+        
         npcAudio.Play();
 
     }

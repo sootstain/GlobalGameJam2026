@@ -50,7 +50,7 @@ Announcer: We are professionals, after all. #line:ann_1_14
 title: Russki_Convo
 when: $currentAct == 1
 ---
-{$RussianGuy}: Hello! I'm Russian guy. Nice to meet you! #line:0551a1f 
+{$RussianGuy}: Hello! I'm Russian guy. Nice to meet you! #line:0551a1f #greeting
 -> Who are you? #line:0befda8 
     {$RussianGuy}: I'm Vladimir Kanibalovic Ruski, famous Russian entrepreneur and assassin! #line:0e476b5 
     {$RussianGuy}: I eat babies for breakfast! #line:0c41e70 

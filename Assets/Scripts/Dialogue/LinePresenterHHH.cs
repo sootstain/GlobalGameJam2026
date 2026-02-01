@@ -440,7 +440,7 @@ namespace Yarn.Unity
             }
 
             // play audio here?
-            // GlobalAudioStuff.instance.PlayAudio(line);
+            GlobalAudioStuff.instance.PlayAudio(line);
 
             await Typewriter.RunTypewriter(text, token.HurryUpToken).SuppressCancellationThrow();
 
