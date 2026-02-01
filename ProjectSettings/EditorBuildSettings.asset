@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Ballroom.unity
     guid: 1648c1c967d9985a5805612a2f18d96a
   - enabled: 1
-    path: Assets/Scenes/Cutout.unity
-    guid: 76b644b306f7ba54f88f80ecdcee33d1
-  - enabled: 1
     path: Assets/Scenes/MaskCreationManualCut.unity
     guid: b99e5dca49a2326428deecdab8b7d079
+  - enabled: 1
+    path: Assets/Scenes/Runway.unity
+    guid: e67ce874d060e1b48b96d67fdd8047b8
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e967ca1c7b76f744ebf6b2e505cbb4b5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

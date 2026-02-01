@@ -40,6 +40,12 @@ public class PlayerInteraction : MonoBehaviour
         
         if (playerCamera == null)
             playerCamera = Camera.main;
+
+        foreach (var x in collectedParts)
+        {
+            //reset
+            x.sprite = null;
+        }
     }
 
     void Update()
