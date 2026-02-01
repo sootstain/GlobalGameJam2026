@@ -2,6 +2,7 @@ using UnityEngine;
 using Yarn.Unity;
 using TMPro;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class NameInputUI : MonoBehaviour
 {
@@ -66,6 +67,8 @@ public class NameInputUI : MonoBehaviour
 
     public IEnumerator ShowNameInput()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         if (playerController != null)
             playerController.lockCamera = true;
 
@@ -98,6 +101,9 @@ public class NameInputUI : MonoBehaviour
 
         if (playerController != null)
             playerController.lockMovement = false;
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ConfirmName()
