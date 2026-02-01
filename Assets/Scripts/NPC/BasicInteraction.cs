@@ -1,4 +1,5 @@
 using System;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.Events;
 using Yarn;
@@ -16,6 +17,18 @@ public class BasicInteraction : MonoBehaviour
 
     public NPC npcData;
     private SpriteRenderer spriteRenderer;
+    
+    [SerializeField] private GameObject panToTarget;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private FirstPersonController controller;
+    
+    [Header("Facing")]
+    [SerializeField] private float facePlayerPanSeconds = 0.25f;
+    [SerializeField] private bool billboardToCameraWhenIdle = true;
+    
+    private Transform _playerFaceTarget;
+    private Coroutine _faceRoutine;
+    private bool _lockFacingDuringConversation;
 
     private void Awake()
     {
@@ -43,6 +56,9 @@ public class BasicInteraction : MonoBehaviour
         {
             Debug.LogWarning($"{nameof(BasicInteraction)}: No DialogueRunner found in scene.");
         }
+        
+        if (playerCamera != null) _playerFaceTarget = playerCamera.transform;
+        else if (controller != null) _playerFaceTarget = controller.transform;
     }
 
     private void OnDestroy()
@@ -61,9 +77,46 @@ public class BasicInteraction : MonoBehaviour
         
         if (dialogueRunner.IsDialogueRunning)
             return;
+        
+        if (_playerFaceTarget != null)
+        {
+            if (_faceRoutine != null) StopCoroutine(_faceRoutine);
+            _faceRoutine = StartCoroutine(PanFaceTargetThenLock(_playerFaceTarget, facePlayerPanSeconds));
+        }
 
         onInteract.Invoke();
         StartConversation();
+        
+    }
+    
+    private System.Collections.IEnumerator PanFaceTargetThenLock(Transform target, float seconds)
+    {
+        _lockFacingDuringConversation = true;
+
+        Vector3 toTarget = target.position - transform.position;
+        toTarget.y = 0f; 
+
+        if (toTarget.sqrMagnitude < 0.0001f)
+            yield break;
+
+        Quaternion from = transform.rotation;
+        Quaternion to = Quaternion.LookRotation(toTarget, Vector3.up);
+
+        if (seconds <= 0f)
+        {
+            transform.rotation = to;
+            yield break;
+        }
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / seconds;
+            transform.rotation = Quaternion.Slerp(from, to, Mathf.Clamp01(t));
+            yield return null;
+        }
+
+        transform.rotation = to;
     }
 
     public void DisableOutline()
